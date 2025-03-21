@@ -95,6 +95,8 @@ jobs:
             curl -fsSL https://get.docker.com -o get-docker.sh
             sudo sh get-docker.sh
             sudo usermod -aG docker $USER
+            # Apply group membership without session restart
+            newgrp docker
           fi
           
           if ! command -v docker compose &> /dev/null; then
