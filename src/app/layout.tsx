@@ -24,7 +24,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<FrontendDeploymentProvider publicKey="wpk_aHR0cDovL2xvY2FsaG9zdDozMDAw">
+		<FrontendDeploymentProvider publicKey="tpk_aHR0cHM6Ly9mYXBpLndhY2h0LnRlY2g=">
 			<html lang="en">
 				<body
 					className={`${geistSans.variable} ${geistMono.variable} antialiased`}
