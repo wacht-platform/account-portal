@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    image: public.ecr.aws/u3p8w9o1/wacht-services/accounts-portal:latest
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
