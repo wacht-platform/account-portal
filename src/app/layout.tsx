@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { FrontendDeploymentProvider } from "@snipextt/wacht-js";
+import {
+	DeploymentInstanceInitialized,
+	FrontendDeploymentProvider,
+} from "@snipextt/wacht-js";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -29,7 +32,9 @@ export default function RootLayout({
 				<body
 					className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				>
-					{children}
+					<DeploymentInstanceInitialized>
+						{children}
+					</DeploymentInstanceInitialized>
 				</body>
 			</html>
 		</FrontendDeploymentProvider>
