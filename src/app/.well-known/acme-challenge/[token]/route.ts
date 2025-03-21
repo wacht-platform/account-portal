@@ -10,7 +10,7 @@ export async function GET(req: NextRequest) {
 		}
 
 		const content = await axios.get(
-			`https://api.cloudflare.com/client/v4/zones/90930ab39928937ca4d0c4aba3b03126/custom_hostnames?hostname=${hostname}`,
+			`https://api.cloudflare.com/client/v4/zones/c1ffb7b7ca71b155b03b649575ba9e85/custom_hostnames?hostname=${hostname}`,
 			{
 				headers: {
 					"X-Auth-Email": process.env.CF_EMAIL,
