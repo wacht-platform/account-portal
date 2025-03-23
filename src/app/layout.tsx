@@ -4,7 +4,7 @@ import "./globals.css";
 import {
 	DeploymentInstanceInitialized,
 	FrontendDeploymentProvider,
-} from "@snipextt/wacht-js";
+} from "@snipextt/wacht";
 import { useEffect, useState } from "react";
 
 const geistSans = Geist({

@@ -3,7 +3,7 @@ import {
 	SignedIn,
 	SignedOut,
 	UserButton,
-} from "@snipextt/wacht-js";
+} from "@snipextt/wacht";
 
 export default function Home() {
 	return (

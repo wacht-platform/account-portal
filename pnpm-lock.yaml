@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@snipextt/wacht':
+        specifier: 0.0.1-alpha.1
+        version: 0.0.1-alpha.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.36.0)
       '@snipextt/wacht-js':
         specifier: ^0.0.7
         version: 0.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.36.0)
@@ -317,6 +320,11 @@ packages:
 
   '@snipextt/wacht-js@0.0.7':
     resolution: {integrity: sha512-sgUTNikLzGFXcraaUPhObyEJxvyYGDRvf3rMhaT8kBnVVoT+k2KBXTPH/Sr6XLi6X9L3+I+Jazd1zROlaTrA+g==}
+    peerDependencies:
+      react: ^19.0.0
+
+  '@snipextt/wacht@0.0.1-alpha.1':
+    resolution: {integrity: sha512-p5m2wpBeGrlO0yvU0qCNTrb/LHY9hXlSjhrYDFIDAeSzSV6hIB1UA2oJaMJ/3Dhj8dRYtgxGd5deB1E/w1eqAQ==}
     peerDependencies:
       react: ^19.0.0
 
@@ -1035,6 +1043,19 @@ snapshots:
     optional: true
 
   '@snipextt/wacht-js@0.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.36.0)':
+    dependencies:
+      lucide-react: 0.474.0(react@19.0.0)
+      qrcode.react: 4.2.0(react@19.0.0)
+      react: 19.0.0
+      rollup-plugin-preserve-use-client: 3.0.1(rollup@4.36.0)
+      styled-components: 6.1.16(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      swr: 2.3.3(react@19.0.0)
+      ts-pattern: 5.6.2
+    transitivePeerDependencies:
+      - react-dom
+      - rollup
+
+  '@snipextt/wacht@0.0.1-alpha.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.36.0)':
     dependencies:
       lucide-react: 0.474.0(react@19.0.0)
       qrcode.react: 4.2.0(react@19.0.0)
