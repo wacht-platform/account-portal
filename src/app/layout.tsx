@@ -42,7 +42,13 @@ export default function RootLayout({
 			const url = window.location.href;
 			if (!url.startsWith("accounts")) throw new Error(`Invalid URL: ${url}`);
 			const backendUrl = url.split(".").slice(1).join(".");
-			setPublicKey(`pk_${btoa(`fapi.${backendUrl}`)}`);
+			const deploymentId = url.split(".")[0];
+
+			if (backendUrl.includes("wacht.tech")) {
+				setPublicKey(`pk_test_${btoa(`${deploymentId}.backend-api.services`)}`);
+			} else {
+				setPublicKey(`pk_test_${btoa(`fapi.${backendUrl}`)}`);
+			}
 		}
 	}, []);
 
