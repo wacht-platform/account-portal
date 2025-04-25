@@ -38,9 +38,9 @@ function generatePublicKey(host: string) {
 	const backendUrl = host.split(".").slice(1).join(".");
 
 	if (backendUrl.includes("wacht.tech")) {
-		return `pk_test_${btoa(`${deploymentId}.backend-api.services`)}`;
+		return `pk_test_${btoa(`https://${deploymentId}.backend-api.services`)}`;
 	} else {
-		return `pk_test_${btoa(`fapi.${backendUrl}`)}`;
+		return `pk_test_${btoa(`https://fapi.${backendUrl}`)}`;
 	}
 }
 
