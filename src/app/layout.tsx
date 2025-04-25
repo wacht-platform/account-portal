@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {
@@ -6,6 +6,8 @@ import {
 	FrontendDeploymentProvider,
 } from "@snipextt/wacht";
 import { headers } from "next/headers";
+
+export const dynamic = 'force-dynamic';
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -17,20 +19,20 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
-export async function generateMetadata({
-	params,
-	searchParams,
-}: {
-	params: Record<string, string>;
-	searchParams: { [key: string]: string | string[] | undefined };
-}): Promise<Metadata> {
+type Props = {
+	params: Promise<{ id: string }>
+}
+
+export async function generateMetadata(
+	{ params }: Props,
+	parent: ResolvingMetadata
+): Promise<Metadata> {
 	return {
 		title: "Wacht Account Portal",
 		description: "Manage your Wacht account and settings",
 	};
 }
 
-// Server-side function to generate the public key
 function generatePublicKey(host: string) {
 	if (!host.startsWith("accounts")) throw new Error(`Invalid host: ${host}`);
 	const deploymentId = host.split(".")[0];
