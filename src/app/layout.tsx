@@ -34,7 +34,6 @@ export async function generateMetadata(
 }
 
 function generatePublicKey(host: string) {
-	if (!host.startsWith("accounts")) throw new Error(`Invalid host: ${host}`);
 	const deploymentId = host.split(".")[0];
 	const backendUrl = host.split(".").slice(1).join(".");
 
