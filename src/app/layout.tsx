@@ -1,4 +1,3 @@
-"use client";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -6,7 +5,7 @@ import {
 	DeploymentInstanceInitialized,
 	FrontendDeploymentProvider,
 } from "@snipextt/wacht";
-import { useEffect, useState } from "react";
+import { headers } from "next/headers";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -31,27 +30,34 @@ export async function generateMetadata({
 	};
 }
 
-export default function RootLayout({
+// Server-side function to generate the public key
+function generatePublicKey(host: string) {
+	if (!host.startsWith("accounts")) throw new Error(`Invalid host: ${host}`);
+	const deploymentId = host.split(".")[0];
+	const backendUrl = host.split(".").slice(1).join(".");
+
+	if (backendUrl.includes("wacht.tech")) {
+		return `pk_test_${btoa(`${deploymentId}.backend-api.services`)}`;
+	} else {
+		return `pk_test_${btoa(`fapi.${backendUrl}`)}`;
+	}
+}
+
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const [publicKey, setPublicKey] = useState<string>("");
+	let publicKey = "";
 
-	useEffect(() => {
-		if (typeof window !== "undefined") {
-			const url = window.location.href;
-			if (!url.startsWith("accounts")) throw new Error(`Invalid URL: ${url}`);
-			const backendUrl = url.split(".").slice(1).join(".");
-			const deploymentId = url.split(".")[0];
-
-			if (backendUrl.includes("wacht.tech")) {
-				setPublicKey(`pk_test_${btoa(`${deploymentId}.backend-api.services`)}`);
-			} else {
-				setPublicKey(`pk_test_${btoa(`fapi.${backendUrl}`)}`);
-			}
-		}
-	}, []);
+	try {
+		const headersList = await headers();
+		const host = headersList.get("host") || "";
+		console.log("host", host);
+		publicKey = generatePublicKey(host);
+	} catch (error) {
+		console.error("Error generating public key:", error);
+	}
 
 	return (
 		<FrontendDeploymentProvider publicKey={publicKey}>
