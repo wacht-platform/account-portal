@@ -6,6 +6,8 @@ import {
 	FrontendDeploymentProvider,
 } from "@snipextt/wacht";
 import { headers } from "next/headers";
+import Link from "next/link";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const dynamic = 'force-dynamic';
 
@@ -61,17 +63,24 @@ export default async function RootLayout({
 	}
 
 	return (
-		<FrontendDeploymentProvider publicKey={publicKey}>
-			<html lang="en">
+		<FrontendDeploymentProvider publicKey={publicKey} platformLink={Link}>
+			<html lang="en" suppressHydrationWarning>
 				<head>
 					<link rel="icon" href="/api/favicon" />
 				</head>
 				<body
 					className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 				>
-					<DeploymentInstanceInitialized>
-						{children}
-					</DeploymentInstanceInitialized>
+					<ThemeProvider
+						attribute="class"
+						defaultTheme="system"
+						enableSystem
+						disableTransitionOnChange
+					>
+						<DeploymentInstanceInitialized>
+							{children}
+						</DeploymentInstanceInitialized>
+					</ThemeProvider>
 				</body>
 			</html>
 		</FrontendDeploymentProvider>
