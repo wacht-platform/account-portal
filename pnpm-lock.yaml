@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@snipextt/wacht':
-        specifier: 0.0.1-alpha.13
-        version: 0.0.1-alpha.13(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
+        specifier: 0.0.1-alpha.15
+        version: 0.0.1-alpha.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
       axios:
         specifier: ^1.8.4
         version: 1.8.4
@@ -323,8 +323,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht@0.0.1-alpha.13':
-    resolution: {integrity: sha512-Dijp02gF3NnSsPTmjI5gWJ7tBaPxmYg13HM9wlyOE9tYuIVRoC2v+8CmJizGcsALHCsAe1SAOYXLM6EafoR3wg==}
+  '@snipextt/wacht@0.0.1-alpha.15':
+    resolution: {integrity: sha512-AsoyG8fhK13puVAP0NRthxGPYevXwPWr0HwGBhI6Z4vCGJ4rYqDuaT+e66F4uvBx5/b3RYGaKSYK3Vb63h3lug==}
     peerDependencies:
       react: ^19.0.0
 
@@ -1051,7 +1051,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.0':
     optional: true
 
-  '@snipextt/wacht@0.0.1-alpha.13(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
+  '@snipextt/wacht@0.0.1-alpha.15(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
     dependencies:
       lucide-react: 0.474.0(react@19.0.0)
       qrcode.react: 4.2.0(react@19.0.0)
