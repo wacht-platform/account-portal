@@ -1,10 +1,7 @@
 import type { Metadata, ResolvingMetadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {
-  DeploymentInstanceInitialized,
-  FrontendDeploymentProvider,
-} from "@snipextt/wacht";
+import { DeploymentInitialized, DeploymentProvider } from "@snipextt/wacht";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -63,7 +60,7 @@ export default async function RootLayout({
   }
 
   return (
-    <FrontendDeploymentProvider publicKey={publicKey}>
+    <DeploymentProvider publicKey={publicKey}>
       <html lang="en" suppressHydrationWarning>
         <head>
           <link rel="icon" href="/api/favicon" />
@@ -77,12 +74,10 @@ export default async function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <DeploymentInstanceInitialized>
-              {children}
-            </DeploymentInstanceInitialized>
+            <DeploymentInitialized>{children}</DeploymentInitialized>
           </ThemeProvider>
         </body>
       </html>
-    </FrontendDeploymentProvider>
+    </DeploymentProvider>
   );
 }
