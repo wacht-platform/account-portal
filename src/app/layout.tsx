@@ -51,10 +51,8 @@ export default async function RootLayout({
 
   try {
     const headersList = await headers();
-    for (const [key, value] of headersList.entries()) {
-      console.log(`${key}: ${value}`);
-    }
-    const host = headersList.get("host") || "";
+    const host =
+      headersList.get("x-forwarded-host") || headersList.get("host") || "";
     console.log("host", host);
     publicKey = generatePublicKey(host);
   } catch (error) {
