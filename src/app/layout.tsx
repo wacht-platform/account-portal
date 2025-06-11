@@ -51,6 +51,7 @@ export default async function RootLayout({
 
   try {
     const headersList = await headers();
+    console.log("headersList", headersList);
     const host = headersList.get("host") || "";
     console.log("host", host);
     publicKey = generatePublicKey(host);
