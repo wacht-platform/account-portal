@@ -38,7 +38,7 @@ function generatePublicKey(host: string) {
   if (backendUrl.includes("wacht.tech")) {
     return `pk_test_${btoa(`https://${deploymentId}.backend-api.services`)}`;
   } else {
-    return `pk_test_${btoa(`https://frontend.${backendUrl}`)}`;
+    return `pk_test_${btoa(`http://frontend.${backendUrl}`)}`;
   }
 }
 
@@ -51,8 +51,8 @@ export default async function RootLayout({
 
   try {
     const headersList = await headers();
-    const host =
-      headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    const host = "accounts.wacht.dev";
+    // headersList.get("x-forwarded-host") || headersList.get("host") || "";
     console.log("host", host);
     publicKey = generatePublicKey(host);
   } catch (error) {
