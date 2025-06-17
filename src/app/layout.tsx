@@ -51,8 +51,8 @@ export default async function RootLayout({
 
   try {
     const headersList = await headers();
-    const host = "accounts.wacht.dev";
-    // headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    const host =
+      headersList.get("x-forwarded-host") || headersList.get("host") || "";
     console.log("host", host);
     publicKey = generatePublicKey(host);
   } catch (error) {
