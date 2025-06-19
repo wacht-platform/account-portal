@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@snipextt/wacht": "0.0.1-alpha.33",
+    "@snipextt/wacht": "0.0.1-alpha.34",
     "account-portal": "link:",
     "axios": "^1.8.4",
     "cloudflare": "^4.2.0",
