@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@snipextt/wacht':
-        specifier: 0.0.1-alpha.32
-        version: 0.0.1-alpha.32(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
+        specifier: 0.0.1-alpha.33
+        version: 0.0.1-alpha.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
       account-portal:
         specifier: 'link:'
         version: 'link:'
@@ -391,8 +391,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht@0.0.1-alpha.32':
-    resolution: {integrity: sha512-8/+3zMHA6vATsS82uaRuAJrMQSD8zylQfDp6JT3NEA8ynsFgtwYaZpuApbtqzZZcfjTdA+II7oyQXEWJf+D2rQ==}
+  '@snipextt/wacht@0.0.1-alpha.33':
+    resolution: {integrity: sha512-6poSX36ZJ2eQ37LvQXIGnsuOkQABk0CM7ncl+C8VZxlN+EWu+RHcZ8DB/rlE1ezt46bB0mJaq0hc5BKXYYPYFg==}
     peerDependencies:
       react: ^19.0.0
 
@@ -1219,7 +1219,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.0':
     optional: true
 
-  '@snipextt/wacht@0.0.1-alpha.32(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
+  '@snipextt/wacht@0.0.1-alpha.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
     dependencies:
       '@headlessui/react': 2.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react: 0.474.0(react@19.0.0)
