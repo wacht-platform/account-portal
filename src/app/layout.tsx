@@ -52,7 +52,6 @@ export default async function RootLayout({
     const headersList = await headers();
     const host =
       headersList.get("x-forwarded-host") || headersList.get("host") || "";
-    console.log("host", host);
     publicKey = generatePublicKey(host);
   } catch (error) {
     console.error("Error generating public key:", error);
