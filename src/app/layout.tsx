@@ -35,7 +35,7 @@ function generatePublicKey(host: string) {
   const backendUrl = host.split(".").slice(1).join(".");
 
   if (backendUrl.includes("wacht.tech")) {
-    return `pk_test_${btoa(host)}`;
+    return `pk_test_${btoa(`https://${host}`)}`;
   } else {
     return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
   }
