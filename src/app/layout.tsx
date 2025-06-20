@@ -32,13 +32,12 @@ export async function generateMetadata(
 }
 
 function generatePublicKey(host: string) {
-  const deploymentId = host.split(".")[0];
   const backendUrl = host.split(".").slice(1).join(".");
 
   if (backendUrl.includes("wacht.tech")) {
-    return `pk_test_${btoa(`https://${deploymentId}.backend-api.services`)}`;
+    return `pk_test_${btoa(host)}`;
   } else {
-    return `pk_test_${btoa(`https://frontend.${backendUrl}`)}`;
+    return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
   }
 }
 
