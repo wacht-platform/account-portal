@@ -1,4 +1,3 @@
-import type { Metadata, ResolvingMetadata } from "next";
 import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import {
@@ -18,12 +17,6 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const dynamic = "force-dynamic";
-
-type Props = {
-  params: Promise<{ id: string }>;
-};
-
 function generatePublicKey(host: string) {
   const slug = host.split(".")[0];
   const backendUrl = host.split(".").slice(1).join(".");
@@ -35,7 +28,7 @@ function generatePublicKey(host: string) {
   }
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -43,9 +36,9 @@ export default function RootLayout({
   let publicKey = "";
 
   try {
-    // const headersList = await headers();
-    const host = "accounts.wacht.dev";
-    // headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    const headersList = await headers();
+    const host =
+      headersList.get("x-forwarded-host") || headersList.get("host") || "";
     publicKey = generatePublicKey(host);
   } catch (error) {
     console.error("Error generating public key:", error);
