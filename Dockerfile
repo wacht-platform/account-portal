@@ -30,10 +30,6 @@ WORKDIR /app
 ENV NODE_ENV production
 ENV NEXT_TELEMETRY_DISABLED 1
 
-# Environment variables for Cloudflare integration
-ENV CF_EMAIL=""
-ENV CF_API_KEY=""
-ENV CF_ZONE_ID=""
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
