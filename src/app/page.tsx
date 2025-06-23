@@ -4,8 +4,7 @@ import {
   SignedIn,
   SignedOut,
   UserButton,
-  useDeployment,
-} from "@snipextt/wacht";
+} from "@snipextt/wacht-nextjs";
 
 export default function Home() {
   return (
