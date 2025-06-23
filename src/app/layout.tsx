@@ -24,16 +24,6 @@ type Props = {
   params: Promise<{ id: string }>;
 };
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  return {
-    title: "Wacht Account Portal",
-    description: "Manage your Wacht account and settings",
-  };
-}
-
 function generatePublicKey(host: string) {
   const slug = host.split(".")[0];
   const backendUrl = host.split(".").slice(1).join(".");
@@ -45,7 +35,7 @@ function generatePublicKey(host: string) {
   }
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -53,9 +43,9 @@ export default async function RootLayout({
   let publicKey = "";
 
   try {
-    const headersList = await headers();
-    const host =
-      headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    // const headersList = await headers();
+    const host = "accounts.wacht.dev";
+    // headersList.get("x-forwarded-host") || headersList.get("host") || "";
     publicKey = generatePublicKey(host);
   } catch (error) {
     console.error("Error generating public key:", error);
