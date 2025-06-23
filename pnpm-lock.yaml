@@ -8,12 +8,9 @@ importers:
 
   .:
     dependencies:
-      '@snipextt/wacht':
-        specifier: 0.0.1-alpha.42
-        version: 0.0.1-alpha.42(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
-      account-portal:
-        specifier: 'link:'
-        version: 'link:'
+      '@snipextt/wacht-nextjs':
+        specifier: 0.0.1-alpha.13
+        version: 0.0.1-alpha.13(@snipextt/wacht@0.0.1-alpha.48(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0))(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
       axios:
         specifier: ^1.8.4
         version: 1.8.4
@@ -254,14 +251,14 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@react-aria/focus@3.20.4':
-    resolution: {integrity: sha512-E9M/kPYvF1fBZpkRXsKqMhvBVEyTY7vmkHeXLJo6tInKQOjYyYs0VeWlnGnxBjQIAH7J7ZKAORfTFQQHyhoueQ==}
+  '@react-aria/focus@3.20.5':
+    resolution: {integrity: sha512-JpFtXmWQ0Oca7FcvkqgjSyo6xEP7v3oQOLUId6o0xTvm4AD5W0mU2r3lYrbhsJ+XxdUUX4AVR5473sZZ85kU4A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
 
-  '@react-aria/interactions@3.25.2':
-    resolution: {integrity: sha512-BWyZXBT4P17b9C9HfOIT2glDFMH9nUCfQF7vZ5FEeXNBudH/8OcSbzyBUG4Dg3XPtkOem5LP59ocaizkl32Tvg==}
+  '@react-aria/interactions@3.25.3':
+    resolution: {integrity: sha512-J1bhlrNtjPS/fe5uJQ+0c7/jiXniwa4RQlP+Emjfc/iuqpW2RhbF9ou5vROcLzWIyaW8tVMZ468J68rAs/aZ5A==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
@@ -391,8 +388,15 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht@0.0.1-alpha.42':
-    resolution: {integrity: sha512-Y4JH590opn9VctBLnE8qyC/FCvulW0KhAJ6yrjakK711vDkq02rgdtsIuNNugwaEsKp5kwvx850cep04XrAAng==}
+  '@snipextt/wacht-nextjs@0.0.1-alpha.13':
+    resolution: {integrity: sha512-uBXQZgmW+8Zmogsx5AJeYCFJMmd6ElO2ggDxf7EdGi4zK5e5iZjp6tn/3ATOBkzZsGJweYxWZRj4g/IrRZRO0w==}
+    peerDependencies:
+      '@snipextt/wacht': ^0.0.1-alpha.48
+      next: ^15.0.0
+      react: ^19.0.0
+
+  '@snipextt/wacht@0.0.1-alpha.48':
+    resolution: {integrity: sha512-NLLu3dKP9rqq2Dm857gBowRskptmcDyNWARr6EeGch6A2jE7zRxEQlu2OOna3KBAof70l7vjb+xDwtZE8hEEgQ==}
     peerDependencies:
       react: ^19.0.0
 
@@ -478,14 +482,14 @@ packages:
   '@tailwindcss/postcss@4.0.14':
     resolution: {integrity: sha512-+uIR6KtKhla1XeIanF27KtrfYy+PX+R679v5LxbkmEZlhQe3g8rk+wKj7Xgt++rWGRuFLGMXY80Ek8JNn+kN/g==}
 
-  '@tanstack/react-virtual@3.13.9':
-    resolution: {integrity: sha512-SPWC8kwG/dWBf7Py7cfheAPOxuvIv4fFQ54PdmYbg7CpXfsKxkucak43Q0qKsxVthhUJQ1A7CIMAIplq4BjVwA==}
+  '@tanstack/react-virtual@3.13.10':
+    resolution: {integrity: sha512-nvrzk4E9mWB4124YdJ7/yzwou7IfHxlSef6ugCFcBfRmsnsma3heciiiV97sBNxyc3VuwtZvmwXd0aB5BpucVw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@tanstack/virtual-core@3.13.9':
-    resolution: {integrity: sha512-3jztt0jpaoJO5TARe2WIHC1UQC3VMLAFUW5mmMo0yrkwtDB2AQP0+sh10BVUpWrnvHjSLvzFizydtEGLCJKFoQ==}
+  '@tanstack/virtual-core@3.13.10':
+    resolution: {integrity: sha512-sPEDhXREou5HyZYqSWIqdU580rsF6FGeN7vpzijmP3KTiOGjOMZASz4Y6+QKjiFQwhWrR58OP8izYaNGVxvViA==}
 
   '@types/estree@1.0.7':
     resolution: {integrity: sha512-w28IoSUCJpidD/TGviZwwMJckNESJZXFu7NBZ5YJ4mEUnNraUn9Pm8HSZm/jDF1pDWYKspWE7oVphigUPRakIQ==}
@@ -881,8 +885,8 @@ packages:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
     engines: {node: '>=10.0.0'}
 
-  styled-components@6.1.17:
-    resolution: {integrity: sha512-97D7DwWanI7nN24v0D4SvbfjLE9656umNSJZkBkDIWL37aZqG/wRQ+Y9pWtXyBIM/NSfcBzHLErEsqHmJNSVUg==}
+  styled-components@6.1.19:
+    resolution: {integrity: sha512-1v/e3Dl1BknC37cXMhwGomhO8AkYmN41CqyX9xhUDxry1ns3BFQy2lLDRQXJRdVVWB9OHemv/53xaStimvWyuA==}
     engines: {node: '>= 16'}
     peerDependencies:
       react: '>= 16.8.0'
@@ -922,8 +926,8 @@ packages:
   tr46@0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
 
-  ts-pattern@5.7.0:
-    resolution: {integrity: sha512-0/FvIG4g3kNkYgbNwBBW5pZBkfpeYQnH+2AA3xmjkCAit/DSDPKmgwC3fKof4oYUq6gupClVOJlFl+939VRBMg==}
+  ts-pattern@5.7.1:
+    resolution: {integrity: sha512-EGs8PguQqAAUIcQfK4E9xdXxB6s2GK4sJfT/vcc9V1ELIvC4LH/zXu2t/5fajtv6oiRCxdv7BgtVK3vWgROxag==}
 
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
@@ -1002,9 +1006,9 @@ snapshots:
   '@headlessui/react@2.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@floating-ui/react': 0.26.28(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-aria/focus': 3.20.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@react-aria/interactions': 3.25.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@tanstack/react-virtual': 3.13.9(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/focus': 3.20.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/interactions': 3.25.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@tanstack/react-virtual': 3.13.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       use-sync-external-store: 1.5.0(react@19.0.0)
@@ -1110,9 +1114,9 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.2.3':
     optional: true
 
-  '@react-aria/focus@3.20.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@react-aria/focus@3.20.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@react-aria/interactions': 3.25.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      '@react-aria/interactions': 3.25.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-aria/utils': 3.29.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@react-types/shared': 3.30.0(react@19.0.0)
       '@swc/helpers': 0.5.15
@@ -1120,7 +1124,7 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@react-aria/interactions@3.25.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@react-aria/interactions@3.25.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@react-aria/ssr': 3.9.9(react@19.0.0)
       '@react-aria/utils': 3.29.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1219,16 +1223,25 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.0':
     optional: true
 
-  '@snipextt/wacht@0.0.1-alpha.42(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
+  '@snipextt/wacht-nextjs@0.0.1-alpha.13(@snipextt/wacht@0.0.1-alpha.48(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0))(next@15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
+    dependencies:
+      '@snipextt/wacht': 0.0.1-alpha.48(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)
+      next: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      rollup-plugin-preserve-use-client: 3.0.1(rollup@4.40.0)
+    transitivePeerDependencies:
+      - rollup
+
+  '@snipextt/wacht@0.0.1-alpha.48(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(rollup@4.40.0)':
     dependencies:
       '@headlessui/react': 2.2.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react: 0.474.0(react@19.0.0)
       qrcode.react: 4.2.0(react@19.0.0)
       react: 19.0.0
       rollup-plugin-preserve-use-client: 3.0.1(rollup@4.40.0)
-      styled-components: 6.1.17(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      styled-components: 6.1.19(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       swr: 2.3.3(react@19.0.0)
-      ts-pattern: 5.7.0
+      ts-pattern: 5.7.1
     transitivePeerDependencies:
       - react-dom
       - rollup
@@ -1301,13 +1314,13 @@ snapshots:
       postcss: 8.5.3
       tailwindcss: 4.0.14
 
-  '@tanstack/react-virtual@3.13.9(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+  '@tanstack/react-virtual@3.13.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@tanstack/virtual-core': 3.13.9
+      '@tanstack/virtual-core': 3.13.10
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@tanstack/virtual-core@3.13.9': {}
+  '@tanstack/virtual-core@3.13.10': {}
 
   '@types/estree@1.0.7': {}
 
@@ -1716,7 +1729,7 @@ snapshots:
 
   streamsearch@1.1.0: {}
 
-  styled-components@6.1.17(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+  styled-components@6.1.19(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       '@emotion/is-prop-valid': 1.2.2
       '@emotion/unitless': 0.8.1
@@ -1751,7 +1764,7 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  ts-pattern@5.7.0: {}
+  ts-pattern@5.7.1: {}
 
   tslib@2.6.2: {}
 

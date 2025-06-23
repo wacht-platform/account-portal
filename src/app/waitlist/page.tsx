@@ -1,4 +1,4 @@
-import { WaitlistForm } from "@snipextt/wacht";
+import { WaitlistForm } from "@snipextt/wacht-nextjs";
 
 export default function SignUp() {
   return (

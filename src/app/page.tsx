@@ -1,8 +1,10 @@
+"use client";
 import {
   NavigateToSignIn,
   SignedIn,
   SignedOut,
   UserButton,
+  useDeployment,
 } from "@snipextt/wacht";
 
 export default function Home() {

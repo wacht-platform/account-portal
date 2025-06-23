@@ -1,11 +1,12 @@
 import type { Metadata, ResolvingMetadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { DeploymentInitialized, DeploymentProvider } from "@snipextt/wacht";
 import { headers } from "next/headers";
+import { Geist, Geist_Mono } from "next/font/google";
+import {
+  DeploymentProvider,
+  DeploymentInitialized,
+} from "@snipextt/wacht-nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
-
-export const dynamic = "force-dynamic";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,6 +17,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ id: string }>;
@@ -32,10 +35,11 @@ export async function generateMetadata(
 }
 
 function generatePublicKey(host: string) {
+  const slug = host.split(".")[0];
   const backendUrl = host.split(".").slice(1).join(".");
 
   if (backendUrl.includes("wacht.tech")) {
-    return `pk_test_${btoa(`https://${host}`)}`;
+    return `pk_test_${btoa(`https://${slug}.frontend-api.services`)}`;
   } else {
     return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
   }
@@ -58,23 +62,19 @@ export default async function RootLayout({
   }
 
   return (
-    <DeploymentProvider publicKey={publicKey}>
-      <html lang="en" suppressHydrationWarning>
-        <head>
-          <link rel="icon" href="/api/favicon" />
-        </head>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <ThemeProvider
-            attribute="class"
-            enableSystem={false}
-            disableTransitionOnChange
-          >
-            <DeploymentInitialized>{children}</DeploymentInitialized>
+    <html lang="en">
+      <head></head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <main>
+          <ThemeProvider>
+            <DeploymentProvider publicKey={publicKey}>
+              <DeploymentInitialized>{children}</DeploymentInitialized>
+            </DeploymentProvider>
           </ThemeProvider>
-        </body>
-      </html>
-    </DeploymentProvider>
+        </main>
+      </body>
+    </html>
   );
 }
