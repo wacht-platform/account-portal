@@ -9,6 +9,9 @@ import {
 
 function DebugComponent() {
   const { navigate } = useNavigation();
+  setTimeout(() => {
+    navigate("https://accounts.wacht.dev/sign-in");
+  }, 1000);
   console.log("Navigation function available:", !!navigate);
   return null;
 }
@@ -22,9 +25,9 @@ export default function Home() {
           <UserButton showName={false} />
         </nav>
       </SignedIn>
-      <SignedOut>
+      {/* <SignedOut>
         <NavigateToSignIn />
-      </SignedOut>
+      </SignedOut> */}
     </>
   );
 }
