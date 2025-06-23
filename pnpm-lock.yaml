@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@snipextt/wacht-nextjs':
-        specifier: 0.0.1-alpha.19
-        version: 0.0.1-alpha.19(@snipextt/wacht@0.0.1-alpha.49(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.44.0))(next@15.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(rollup@4.44.0)
+        specifier: 0.0.1-alpha.22
+        version: 0.0.1-alpha.22(@snipextt/wacht@0.0.1-alpha.49(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.44.0))(next@15.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(rollup@4.44.0)
       axios:
         specifier: ^1.8.4
         version: 1.10.0
@@ -349,8 +349,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.19':
-    resolution: {integrity: sha512-azHootsfCgDY3MKpW41uoe7N9nB49Fm//OAE26sv6g9EttWJTEEJB2gPl8buBHITtPCJIGKWd2efEUbPlX6jbQ==}
+  '@snipextt/wacht-nextjs@0.0.1-alpha.22':
+    resolution: {integrity: sha512-rx5XUBR9Fwgndwa5lmA7nFgzmYUY1Y2l8Zan1VdRKieZQ2qlZZKJRTxgDlaZUuZm6eeweo3l1BwyLkgusKQvqg==}
     peerDependencies:
       '@snipextt/wacht': ^0.0.1-alpha.49
       next: ^15.0.0
@@ -1152,7 +1152,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.44.0':
     optional: true
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.19(@snipextt/wacht@0.0.1-alpha.49(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.44.0))(next@15.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(rollup@4.44.0)':
+  '@snipextt/wacht-nextjs@0.0.1-alpha.22(@snipextt/wacht@0.0.1-alpha.49(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.44.0))(next@15.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(rollup@4.44.0)':
     dependencies:
       '@snipextt/wacht': 0.0.1-alpha.49(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.44.0)
       next: 15.2.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
