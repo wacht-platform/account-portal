@@ -42,6 +42,9 @@ export async function generateMetadata(): Promise<Metadata> {
     const headersList = await headers();
     let host =
       headersList.get("x-forwarded-host") || headersList.get("host") || "";
+
+    console.log(host, "host");
+
     const slug = host.split(".")[0];
     const backendUrl = host.split(".").slice(1).join(".");
 
