@@ -40,9 +40,16 @@ type Meta = {
 export async function generateMetadata(): Promise<Metadata> {
   try {
     const headersList = await headers();
-    const host =
+    let host =
       headersList.get("x-forwarded-host") || headersList.get("host") || "";
-    console.log("host", host);
+    const slug = host.split(".")[0];
+    const backendUrl = host.split(".").slice(1).join(".");
+
+    if (backendUrl.includes("wacht.tech")) {
+      host = `https://${slug}.frontend-api.services`;
+    } else {
+      host = `https://frontend.${backendUrl}`;
+    }
 
     const meta: { data: Meta } = await fetch(
       `https://${host}/.well-known/meta`
@@ -53,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
       icons: [{ url: meta.data.favicon_image_url }],
     };
   } catch (error) {
-    console.error("Error generating public key:", error);
+    console.error("Error fetching meta:", error);
     return {
       title: "Accounts Portal",
     };
