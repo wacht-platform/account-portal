@@ -5,6 +5,7 @@ import {
   DeploymentInitialized,
 } from "@snipextt/wacht-nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -30,6 +31,32 @@ function generatePublicKey(host: string) {
   }
 }
 
+type Meta = {
+  app_name: string;
+  favicon_image_url: string;
+};
+
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const headersList = await headers();
+    const host =
+      headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    const meta: { data: Meta } = await fetch(
+      `https://${host}/.well-known/meta`
+    ).then((res) => res.json());
+
+    return {
+      title: `Accounts Portal | ${meta.data.app_name}`,
+      icons: [{ url: meta.data.favicon_image_url }],
+    };
+  } catch (error) {
+    console.error("Error generating public key:", error);
+    return {
+      title: "Accounts Portal",
+    };
+  }
+}
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -48,7 +75,6 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <head></head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
