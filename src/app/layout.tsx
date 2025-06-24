@@ -7,6 +7,7 @@ import {
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
+import { console } from "inspector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,8 @@ export async function generateMetadata(): Promise<Metadata> {
     const headersList = await headers();
     const host =
       headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    console.log("host", host);
+
     const meta: { data: Meta } = await fetch(
       `https://${host}/.well-known/meta`
     ).then((res) => res.json());
