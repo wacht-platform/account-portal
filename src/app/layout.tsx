@@ -17,6 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const dynamic = "force-dynamic";
+
 function generatePublicKey(host: string) {
   const slug = host.split(".")[0];
   const backendUrl = host.split(".").slice(1).join(".");
