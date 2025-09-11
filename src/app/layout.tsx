@@ -1,8 +1,8 @@
 import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import {
-  DeploymentProvider,
   DeploymentInitialized,
+  DeploymentProvider,
 } from "@snipextt/wacht-nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
@@ -22,10 +22,10 @@ export const dynamic = "force-dynamic";
 
 function generatePublicKey(host: string) {
   const slug = host.split(".")[0];
-  const backendUrl = host.split(".").slice(1).join(".");
+  const backendUrl = "dimwitted-axis-1.wacht.tech";
 
   if (backendUrl.includes("wacht.tech")) {
-    return `pk_test_${btoa(`https://${slug}.frontend-api.services`)}`;
+    return `pk_test_${btoa(`https://dimwitted-axis-1.frontend-api.services`)}`;
   } else {
     return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
   }
@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
     }
 
     const meta: { data: Meta } = await fetch(`${host}/.well-known/meta`).then(
-      (res) => res.json()
+      (res) => res.json(),
     );
 
     return {
@@ -60,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
       icons: [{ url: meta.data.favicon_image_url }],
     };
   } catch (error) {
-    console.error("Error fetching meta:", error);
+    // Error fetching meta
     return {
       title: "Accounts Portal",
     };
@@ -80,16 +80,21 @@ export default async function RootLayout({
       headersList.get("x-forwarded-host") || headersList.get("host") || "";
     publicKey = generatePublicKey(host);
   } catch (error) {
-    console.error("Error generating public key:", error);
+    // Error generating public key
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <main>
-          <ThemeProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <DeploymentProvider publicKey={publicKey}>
               <DeploymentInitialized>{children}</DeploymentInitialized>
             </DeploymentProvider>

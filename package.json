@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 5173 --turbopack",
+    "dev": "next dev --port 5174 --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,7 +12,8 @@
     "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
-    "@snipextt/wacht-nextjs": "0.0.1-alpha.34",
+    "@snipextt/wacht": "^0.0.1-alpha.64",
+    "@snipextt/wacht-nextjs": "^0.0.1-alpha.38",
     "axios": "^1.8.4",
     "cloudflare": "^4.2.0",
     "next": "15.2.3",
