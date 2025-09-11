@@ -12,8 +12,7 @@
     "deploy": "npm run pages:build && wrangler pages deploy"
   },
   "dependencies": {
-    "@snipextt/wacht": "^0.0.1-alpha.64",
-    "@snipextt/wacht-nextjs": "^0.0.1-alpha.38",
+    "@snipextt/wacht-nextjs": "^0.0.1-alpha.39",
     "axios": "^1.8.4",
     "cloudflare": "^4.2.0",
     "next": "15.2.3",
