@@ -22,7 +22,7 @@ export const dynamic = "force-dynamic";
 
 function generatePublicKey(host: string) {
   const slug = host.split(".")[0];
-  const backendUrl = "dimwitted-axis-1.wacht.tech";
+  const backendUrl = host.split(".").slice(1).join(".");
 
   if (backendUrl.includes("wacht.tech")) {
     return `pk_test_${btoa(`https://dimwitted-axis-1.frontend-api.services`)}`;
