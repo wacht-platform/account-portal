@@ -25,7 +25,7 @@ function generatePublicKey(host: string) {
   const backendUrl = host.split(".").slice(1).join(".");
 
   if (backendUrl.includes("wacht.tech")) {
-    return `pk_test_${btoa(`https://dimwitted-axis-1.frontend-api.services`)}`;
+    return `pk_test_${btoa(`https://{slug}.frontend-api.services`)}`;
   } else {
     return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
   }
