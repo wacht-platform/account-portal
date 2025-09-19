@@ -8,9 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@snipextt/wacht':
+        specifier: 0.0.1-alpha.70
+        version: 0.0.1-alpha.70(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)
       '@snipextt/wacht-nextjs':
-        specifier: 0.0.1-alpha.43
-        version: 0.0.1-alpha.43(@snipextt/wacht@0.0.1-alpha.68(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)
+        specifier: 0.0.1-alpha.44
+        version: 0.0.1-alpha.44(@snipextt/wacht@0.0.1-alpha.70(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)
       axios:
         specifier: ^1.8.4
         version: 1.12.0
@@ -348,22 +351,22 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.43':
-    resolution: {integrity: sha512-7/tOWJ6GZ316f5Ct121xzMsY0ac2REXjD5AB26zMN6igqaOYOiRTQaDxNSLrRoatbHseBYmSMFvoDXNTfYhAzg==}
+  '@snipextt/wacht-nextjs@0.0.1-alpha.44':
+    resolution: {integrity: sha512-4+bviOPgqx4jCDAu9Vg2mYLHC2BM3t97Bqu/ftyBZ5lF3of9rL/bD2rN+DWr83giWJs/gY3W4qpJ+QDZMQNX7Q==}
     peerDependencies:
-      '@snipextt/wacht': 0.0.1-alpha.69
-      next: ^15.0.0
-      react: ^19.0.0
-      react-dom: ^19.0.0
+      '@snipextt/wacht': workspace:*
+      next: 'catalog:'
+      react: 'catalog:'
+      react-dom: 'catalog:'
 
-  '@snipextt/wacht-types@0.0.4':
-    resolution: {integrity: sha512-ZtJqlTqfjsdUywij2H7fBUXmBturRWwtZc1RA5gqrFAN3k7nSoGjE+DUt9zElDMMpbZ3ZsjB0u2WRJ1DkhPStA==}
+  '@snipextt/wacht-types@0.0.5':
+    resolution: {integrity: sha512-vi4qfE61oyyoITFQLCi22mPwukPDKCOtq3kRpCKKVVkZb0jh0eoCUNax151hkrWogSJd8O0bWvIhYYRuhbbClQ==}
 
-  '@snipextt/wacht@0.0.1-alpha.68':
-    resolution: {integrity: sha512-cJysSjDNvdZ0UOTGTZQ0rrkSJgX9DFFTM+djMGnUjJFX/8/LcLcAOr+n06SeX3AloDzHUgs5rTspMSrNu+mK9Q==}
+  '@snipextt/wacht@0.0.1-alpha.70':
+    resolution: {integrity: sha512-4hePKkRPcdWR2yJupAkTUfc/+2tP6I108Lwn2KxLpt7ThvaBGETW1XrWZPJquQm3VxouRRGTAzpDCw82/U0A7A==}
     peerDependencies:
-      react: ^19.0.0
-      react-dom: ^19.0.0
+      react: 'catalog:'
+      react-dom: 'catalog:'
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -1155,9 +1158,9 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.50.1':
     optional: true
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.43(@snipextt/wacht@0.0.1-alpha.68(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)':
+  '@snipextt/wacht-nextjs@0.0.1-alpha.44(@snipextt/wacht@0.0.1-alpha.70(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)':
     dependencies:
-      '@snipextt/wacht': 0.0.1-alpha.68(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)
+      '@snipextt/wacht': 0.0.1-alpha.70(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)
       next: 15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
@@ -1165,11 +1168,11 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  '@snipextt/wacht-types@0.0.4': {}
+  '@snipextt/wacht-types@0.0.5': {}
 
-  '@snipextt/wacht@0.0.1-alpha.68(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)':
+  '@snipextt/wacht@0.0.1-alpha.70(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.50.1)':
     dependencies:
-      '@snipextt/wacht-types': 0.0.4
+      '@snipextt/wacht-types': 0.0.5
       lucide-react: 0.474.0(react@19.1.1)
       qrcode.react: 4.2.0(react@19.1.1)
       react: 19.1.1
