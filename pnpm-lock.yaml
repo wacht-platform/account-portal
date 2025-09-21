@@ -10,9 +10,9 @@ importers:
     dependencies:
       '@snipextt/wacht-nextjs':
         specifier: 0.0.1-alpha.48
-        version: 0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
+        version: 0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.74(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
       axios:
-        specifier: ^1.8.4
+        specifier: ^1.12.2
         version: 1.12.2
       next:
         specifier: 15.2.3
@@ -21,29 +21,29 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react:
-        specifier: ^19.0.0
+        specifier: ^19.1.1
         version: 19.1.1
       react-dom:
-        specifier: ^19.0.0
+        specifier: ^19.1.1
         version: 19.1.1(react@19.1.1)
     devDependencies:
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: ^4.1.13
         version: 4.1.13
       '@types/node':
-        specifier: ^20
+        specifier: ^20.19.17
         version: 20.19.17
       '@types/react':
-        specifier: ^19
+        specifier: ^19.1.13
         version: 19.1.13
       '@types/react-dom':
-        specifier: ^19
+        specifier: ^19.1.9
         version: 19.1.9(@types/react@19.1.13)
       tailwindcss:
-        specifier: ^4
+        specifier: ^4.1.13
         version: 4.1.13
       typescript:
-        specifier: ^5
+        specifier: ^5.9.2
         version: 5.9.2
 
 packages:
@@ -361,8 +361,8 @@ packages:
   '@snipextt/wacht-types@0.0.5':
     resolution: {integrity: sha512-vi4qfE61oyyoITFQLCi22mPwukPDKCOtq3kRpCKKVVkZb0jh0eoCUNax151hkrWogSJd8O0bWvIhYYRuhbbClQ==}
 
-  '@snipextt/wacht@0.0.1-alpha.73':
-    resolution: {integrity: sha512-e3nxRJ9UMZBFjdfNi1guvKOSu1QHDAnnmwhstLfR4A3IZtwdG4cBrjJF2lW2PxqcEpoRhBizem3L4zQi6I6GZw==}
+  '@snipextt/wacht@0.0.1-alpha.74':
+    resolution: {integrity: sha512-vx+Y1pSY0mSNi5SnUYHYE6G6zH3w9R2fgwYHrMv0zjMDNzxjkXynTKxhteXXcgmvJVxRiWIcYmkgXibsnWSDZQ==}
     peerDependencies:
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -1096,9 +1096,9 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.0':
     optional: true
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
+  '@snipextt/wacht-nextjs@0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.74(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
     dependencies:
-      '@snipextt/wacht': 0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
+      '@snipextt/wacht': 0.0.1-alpha.74(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
       next: 15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       react: 19.1.1
       react-dom: 19.1.1(react@19.1.1)
@@ -1108,7 +1108,7 @@ snapshots:
 
   '@snipextt/wacht-types@0.0.5': {}
 
-  '@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
+  '@snipextt/wacht@0.0.1-alpha.74(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
     dependencies:
       '@snipextt/wacht-types': 0.0.5
       lucide-react: 0.474.0(react@19.1.1)
