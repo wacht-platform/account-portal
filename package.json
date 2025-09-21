@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@snipextt/wacht-nextjs": "0.0.1-alpha.47",
+    "@snipextt/wacht-nextjs": "0.0.1-alpha.48",
     "axios": "^1.8.4",
     "next": "15.2.3",
     "next-themes": "^0.4.6",

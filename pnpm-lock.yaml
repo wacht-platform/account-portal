@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@snipextt/wacht-nextjs':
-        specifier: 0.0.1-alpha.47
-        version: 0.0.1-alpha.47(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
+        specifier: 0.0.1-alpha.48
+        version: 0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
       axios:
         specifier: ^1.8.4
         version: 1.12.2
@@ -350,10 +350,10 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.47':
-    resolution: {integrity: sha512-k+dfSIePl3j4qnDfdaL/vrPM/rGagt/o2ZQJLIaZMQzmc30C61wjwFvU5Bt5Mkd+WCIYTf9HX6p/9h6L40VxRQ==}
+  '@snipextt/wacht-nextjs@0.0.1-alpha.48':
+    resolution: {integrity: sha512-8wlvRdpuLKuTXfjlVdypbGDSSLShUnUc3VO2Ih6Svq2T08CCfXYy/Qm2896teg/aYyHCzewLnot0VuW5vb9LHA==}
     peerDependencies:
-      '@snipextt/wacht': 0.0.1-alpha.73
+      '@snipextt/wacht': 0.0.1-alpha.74
       next: ^15.0.0
       react: ^19.0.0
       react-dom: ^19.0.0
@@ -1096,7 +1096,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.52.0':
     optional: true
 
-  '@snipextt/wacht-nextjs@0.0.1-alpha.47(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
+  '@snipextt/wacht-nextjs@0.0.1-alpha.48(@snipextt/wacht@0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0))(next@15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1))(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)':
     dependencies:
       '@snipextt/wacht': 0.0.1-alpha.73(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(rollup@4.52.0)
       next: 15.2.3(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
