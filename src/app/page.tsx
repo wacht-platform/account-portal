@@ -1,9 +1,5 @@
-import {
-  SignedInAccounts,
-} from "@snipextt/wacht-nextjs";
+import { SignedInAccounts } from "@wacht/nextjs";
 
 export default function Home() {
-  return (
-    <SignedInAccounts />
-  );
+  return <SignedInAccounts />;
 }

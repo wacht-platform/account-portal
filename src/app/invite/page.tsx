@@ -1,4 +1,4 @@
-import { AcceptInvite } from "@snipextt/wacht-nextjs";
+import { AcceptInvite } from "@wacht/nextjs";
 
 export default function Invite() {
   return (

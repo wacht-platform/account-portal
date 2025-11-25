@@ -1,6 +1,6 @@
 "use client";
 
-import { MagicLinkVerification } from "@snipextt/wacht-nextjs";
+import { MagicLinkVerification } from "@wacht/nextjs";
 
 export default function MagicPage() {
   return (

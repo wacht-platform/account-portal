@@ -1,9 +1,6 @@
 import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
-import {
-  DeploymentInitialized,
-  DeploymentProvider,
-} from "@snipextt/wacht-nextjs";
+import { DeploymentInitialized, DeploymentProvider } from "@wacht/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import type { Metadata } from "next";
 import "./globals.css";
