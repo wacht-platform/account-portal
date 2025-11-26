@@ -1,4 +1,4 @@
-import { SSOCallback } from "@snipextt/wacht-nextjs";
+import { SSOCallback } from "@wacht/nextjs";
 
 export default function SSOCallbackPage() {
   return (

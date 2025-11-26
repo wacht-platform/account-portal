@@ -1,4 +1,4 @@
-import { SignUpForm } from "@snipextt/wacht-nextjs";
+import { SignUpForm } from "@wacht/nextjs";
 
 export default function SignUp() {
   return (
