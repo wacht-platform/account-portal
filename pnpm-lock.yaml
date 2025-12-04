@@ -10,22 +10,22 @@ importers:
     dependencies:
       '@wacht/nextjs':
         specifier: latest
-        version: 0.0.1-alpha.7(@wacht/jsx@0.0.1-alpha.22(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3))(@wacht/types@0.0.1-alpha.10)(next@15.2.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)
+        version: 0.0.1-alpha.7(@wacht/jsx@0.0.1-alpha.24(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3))(@wacht/types@0.0.1-alpha.10)(next@15.2.3(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3)
       axios:
         specifier: ^1.12.2
         version: 1.13.2
       next:
         specifier: 15.2.3
-        version: 15.2.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 15.2.3(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       next-themes:
         specifier: ^0.4.6
-        version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 0.4.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       react:
         specifier: ^19.1.1
-        version: 19.2.0
+        version: 19.2.1
       react-dom:
         specifier: ^19.1.1
-        version: 19.2.0(react@19.2.0)
+        version: 19.2.1(react@19.2.1)
     devDependencies:
       '@tailwindcss/postcss':
         specifier: ^4.1.13
@@ -457,8 +457,8 @@ packages:
   '@types/stylis@4.2.5':
     resolution: {integrity: sha512-1Xve+NMN7FWjY14vLoY5tL3BVEQ/n42YLwaqJIPYhotZ9uBHt87VceMwWQpzmdEt2TNXIorIFG+YeCUUW7RInw==}
 
-  '@wacht/jsx@0.0.1-alpha.22':
-    resolution: {integrity: sha512-4rk9fdNJuGroPLEhg8NcY9A8xMVSoeXZsDS++MzOcy0kzzjV1QTbgMT7xg7RFyWiJJxSOZcJffy2DiqlA9afrw==}
+  '@wacht/jsx@0.0.1-alpha.24':
+    resolution: {integrity: sha512-5Ep5QIDaQ/CvZd8HDfqDkqJA+dJ1D+wdKKRPTr1xtNtDHgJTHVEnODzHUu8tpi3UImd8hHWwosgvdQeGkX7lVw==}
     peerDependencies:
       '@wacht/types': '*'
       react: ^19.0.0
@@ -493,8 +493,8 @@ packages:
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
 
-  caniuse-lite@1.0.30001757:
-    resolution: {integrity: sha512-r0nnL/I28Zi/yjk1el6ilj27tKcdjLsNqAOZr0yVjWPrSQyHgKI2INaEWw21bAQSv2LXRt1XuCS/GomNpWOxsQ==}
+  caniuse-lite@1.0.30001759:
+    resolution: {integrity: sha512-Pzfx9fOKoKvevQf8oCXoyNRQ5QyxJj+3O0Rqx2V5oxT61KGx8+n6hV/IUyJeifUci2clnmmKVpvtiqRzgiWjSw==}
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -769,13 +769,13 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  react-dom@19.2.0:
-    resolution: {integrity: sha512-UlbRu4cAiGaIewkPyiRGJk0imDN2T3JjieT6spoL2UeSf5od4n5LB/mQ4ejmxhCFT1tYe8IvaFulzynWovsEFQ==}
+  react-dom@19.2.1:
+    resolution: {integrity: sha512-ibrK8llX2a4eOskq1mXKu/TGZj9qzomO+sNfO98M6d9zIPOEhlBkMkBUBLd1vgS0gQsLDBzA+8jJBVXDnfHmJg==}
     peerDependencies:
-      react: ^19.2.0
+      react: ^19.2.1
 
-  react@19.2.0:
-    resolution: {integrity: sha512-tmbWg6W31tQLeB5cdIBOicJDJRR2KzXsV7uSK9iNfLWQ5bIZfxuPEHp7M8wiHyHnn0DD1i7w3Zmin0FtkrwoCQ==}
+  react@19.2.1:
+    resolution: {integrity: sha512-DGrYcCWK7tvYMnWh79yrPHt+vdx9tY+1gPZa7nJQtO/p8bLTDaHp4dzwEhQB7pZ4Xe3ok4XKuEPrVuc+wlpkmw==}
     engines: {node: '>=0.10.0'}
 
   rollup-plugin-preserve-use-client@3.0.1:
@@ -1165,27 +1165,27 @@ snapshots:
 
   '@types/stylis@4.2.5': {}
 
-  '@wacht/jsx@0.0.1-alpha.22(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)':
+  '@wacht/jsx@0.0.1-alpha.24(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3)':
     dependencies:
       '@wacht/types': 0.0.1-alpha.10
-      lucide-react: 0.474.0(react@19.2.0)
-      qrcode.react: 4.2.0(react@19.2.0)
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
+      lucide-react: 0.474.0(react@19.2.1)
+      qrcode.react: 4.2.0(react@19.2.1)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
       rollup-plugin-preserve-use-client: 3.0.1(rollup@4.53.3)
-      styled-components: 6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      swr: 2.3.7(react@19.2.0)
+      styled-components: 6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      swr: 2.3.7(react@19.2.1)
       ts-pattern: 5.9.0
     transitivePeerDependencies:
       - rollup
 
-  '@wacht/nextjs@0.0.1-alpha.7(@wacht/jsx@0.0.1-alpha.22(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3))(@wacht/types@0.0.1-alpha.10)(next@15.2.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)':
+  '@wacht/nextjs@0.0.1-alpha.7(@wacht/jsx@0.0.1-alpha.24(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3))(@wacht/types@0.0.1-alpha.10)(next@15.2.3(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3)':
     dependencies:
-      '@wacht/jsx': 0.0.1-alpha.22(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(rollup@4.53.3)
+      '@wacht/jsx': 0.0.1-alpha.24(@wacht/types@0.0.1-alpha.10)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(rollup@4.53.3)
       '@wacht/types': 0.0.1-alpha.10
-      next: 15.2.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
+      next: 15.2.3(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
       rollup-plugin-preserve-use-client: 3.0.1(rollup@4.53.3)
     transitivePeerDependencies:
       - rollup
@@ -1213,7 +1213,7 @@ snapshots:
 
   camelize@1.0.1: {}
 
-  caniuse-lite@1.0.30001757: {}
+  caniuse-lite@1.0.30001759: {}
 
   client-only@0.0.1: {}
 
@@ -1386,9 +1386,9 @@ snapshots:
       lightningcss-win32-arm64-msvc: 1.30.2
       lightningcss-win32-x64-msvc: 1.30.2
 
-  lucide-react@0.474.0(react@19.2.0):
+  lucide-react@0.474.0(react@19.2.1):
     dependencies:
-      react: 19.2.0
+      react: 19.2.1
 
   magic-string@0.30.21:
     dependencies:
@@ -1404,22 +1404,22 @@ snapshots:
 
   nanoid@3.3.11: {}
 
-  next-themes@0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  next-themes@0.4.6(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
     dependencies:
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
 
-  next@15.2.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  next@15.2.3(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
     dependencies:
       '@next/env': 15.2.3
       '@swc/counter': 0.1.3
       '@swc/helpers': 0.5.15
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001757
+      caniuse-lite: 1.0.30001759
       postcss: 8.4.31
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
-      styled-jsx: 5.1.6(react@19.2.0)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
+      styled-jsx: 5.1.6(react@19.2.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.2.3
       '@next/swc-darwin-x64': 15.2.3
@@ -1458,16 +1458,16 @@ snapshots:
 
   proxy-from-env@1.1.0: {}
 
-  qrcode.react@4.2.0(react@19.2.0):
+  qrcode.react@4.2.0(react@19.2.1):
     dependencies:
-      react: 19.2.0
+      react: 19.2.1
 
-  react-dom@19.2.0(react@19.2.0):
+  react-dom@19.2.1(react@19.2.1):
     dependencies:
-      react: 19.2.0
+      react: 19.2.1
       scheduler: 0.27.0
 
-  react@19.2.0: {}
+  react@19.2.1: {}
 
   rollup-plugin-preserve-use-client@3.0.1(rollup@4.53.3):
     dependencies:
@@ -1544,7 +1544,7 @@ snapshots:
 
   streamsearch@1.1.0: {}
 
-  styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  styled-components@6.1.19(react-dom@19.2.1(react@19.2.1))(react@19.2.1):
     dependencies:
       '@emotion/is-prop-valid': 1.2.2
       '@emotion/unitless': 0.8.1
@@ -1552,24 +1552,24 @@ snapshots:
       css-to-react-native: 3.2.0
       csstype: 3.1.3
       postcss: 8.4.49
-      react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
       shallowequal: 1.1.0
       stylis: 4.3.2
       tslib: 2.6.2
 
-  styled-jsx@5.1.6(react@19.2.0):
+  styled-jsx@5.1.6(react@19.2.1):
     dependencies:
       client-only: 0.0.1
-      react: 19.2.0
+      react: 19.2.1
 
   stylis@4.3.2: {}
 
-  swr@2.3.7(react@19.2.0):
+  swr@2.3.7(react@19.2.1):
     dependencies:
       dequal: 2.0.3
-      react: 19.2.0
-      use-sync-external-store: 1.6.0(react@19.2.0)
+      react: 19.2.1
+      use-sync-external-store: 1.6.0(react@19.2.1)
 
   tailwindcss@4.1.17: {}
 
@@ -1585,6 +1585,6 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  use-sync-external-store@1.6.0(react@19.2.0):
+  use-sync-external-store@1.6.0(react@19.2.1):
     dependencies:
-      react: 19.2.0
+      react: 19.2.1
