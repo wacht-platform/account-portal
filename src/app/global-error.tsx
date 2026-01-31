@@ -19,7 +19,7 @@ export default function GlobalError({
         <div className="flex w-full h-screen items-center justify-center">
           <div className="max-w-[400px] w-full bg-surface dark:bg-zinc-900 rounded-lg shadow-lg p-8 text-center">
             <div className="mb-6">
-              <h1 className="text-2xl text-foreground mb-2">System Error</h1>
+              <h1 className="text-xl text-foreground mb-2">System Error</h1>
               <p className="text-muted-foreground text-sm mb-6">
                 We encountered a critical error. Please try refreshing the page.
               </p>

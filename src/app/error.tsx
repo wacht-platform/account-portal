@@ -17,7 +17,7 @@ export default function Error({
     <div className="flex w-full h-screen items-center justify-center bg-background">
       <div className="max-w-[400px] w-full bg-surface dark:bg-zinc-900 rounded-lg shadow-lg p-8 text-center">
         <div className="mb-6">
-          <h1 className="text-2xl text-foreground mb-2">Something went wrong</h1>
+          <h1 className="text-xl text-foreground mb-2">Something went wrong</h1>
           <p className="text-muted-foreground text-sm mb-6">
             We encountered an unexpected error.
           </p>
