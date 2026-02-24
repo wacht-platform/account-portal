@@ -6,98 +6,95 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+    variable: "--font-geist-sans",
+    subsets: ["latin"],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+    variable: "--font-geist-mono",
+    subsets: ["latin"],
 });
 
 export const dynamic = "force-dynamic";
 
-function generatePublicKey(host: string) {
-  const slug = host.split(".")[0];
-  const backendUrl = host.split(".").slice(1).join(".");
-
-  if (backendUrl.includes("trywacht.xyz")) {
-    return `pk_test_${btoa(`https://${slug}.frontend-api.services`)}`;
-  } else {
-    return `pk_live_${btoa(`https://frontend.${backendUrl}`)}`;
-  }
-}
-
 type Meta = {
-  app_name: string;
-  favicon_image_url: string;
+    app_name: string;
+    favicon_image_url: string;
 };
 
-export async function generateMetadata(): Promise<Metadata> {
-  try {
-    const headersList = await headers();
-    let host =
-      headersList.get("x-forwarded-host") || headersList.get("host") || "";
+function deriveFrontendApiBase(rawHost: string): string | null {
+    const host = rawHost.trim();
+    if (!host) return null;
 
     const slug = host.split(".")[0];
     const backendUrl = host.split(".").slice(1).join(".");
+    if (!backendUrl) return null;
 
     if (backendUrl.includes("trywacht.xyz")) {
-      host = `https://${slug}.frontend-api.services`;
-    } else {
-      host = `https://frontend.${backendUrl}`;
+        return `https://${slug}.feapis.xyz`;
     }
+    return `https://frontend.${backendUrl}`;
+}
 
-    const meta: { data: Meta } = await fetch(`${host}/.well-known/meta`).then(
-      (res) => res.json(),
-    );
+export async function generateMetadata(): Promise<Metadata> {
+    try {
+        const headersList = await headers();
+        const host =
+            headersList.get("x-forwarded-host") ||
+            headersList.get("host") ||
+            "";
+        const frontendApiBase = deriveFrontendApiBase(host);
+        if (!frontendApiBase)
+            throw new Error("Unable to derive frontend-api base URL");
 
-    return {
-      title: `Accounts Portal | ${meta.data.app_name}`,
-      icons: [{ url: meta.data.favicon_image_url }],
-    };
-  } catch (error) {
-    // Error fetching meta
-    return {
-      title: "Accounts Portal",
-    };
-  }
+        const meta: { data: Meta } = await fetch(
+            `${frontendApiBase}/.well-known/meta`,
+        ).then((res) => res.json());
+
+        return {
+            title: `Accounts Portal | ${meta.data.app_name}`,
+            icons: [{ url: meta.data.favicon_image_url }],
+        };
+    } catch (error) {
+        return {
+            title: "Accounts Portal",
+        };
+    }
 }
 
 export default async function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  let publicKey = "";
-
-  try {
     const headersList = await headers();
-    const host =
-      headersList.get("x-forwarded-host") || headersList.get("host") || "";
-    publicKey = generatePublicKey(host);
-  } catch (error) {
-    // Error generating public key
-  }
+    const portalHost =
+        headersList.get("x-forwarded-host") || headersList.get("host") || "";
+    const frontendApiBase = deriveFrontendApiBase(portalHost) || "";
+    const publicKey = frontendApiBase
+        ? `pk_test_${Buffer.from(frontendApiBase).toString("base64")}`
+        : "";
 
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <main>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <DeploymentProvider publicKey={publicKey}>
-              <DeploymentInitialized>{children}</DeploymentInitialized>
-            </DeploymentProvider>
-          </ThemeProvider>
-        </main>
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en" suppressHydrationWarning>
+            <body
+                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            >
+                <main>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <DeploymentProvider publicKey={publicKey}>
+                            <DeploymentInitialized>
+                                {children}
+                            </DeploymentInitialized>
+                        </DeploymentProvider>
+                    </ThemeProvider>
+                </main>
+            </body>
+        </html>
+    );
 }
