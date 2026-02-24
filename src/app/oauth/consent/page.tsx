@@ -30,6 +30,7 @@ type ConsentContext = {
     }>;
     state?: string | null;
     expires_at: number;
+    csrf_token: string;
 };
 
 function AppAvatar({
@@ -412,6 +413,11 @@ export default function OAuthConsentPage() {
                                             name="action"
                                             value="deny"
                                         />
+                                        <input
+                                            type="hidden"
+                                            name="csrf_token"
+                                            value={context.csrf_token}
+                                        />
                                         <button
                                             type="submit"
                                             className="w-full rounded-lg border border-neutral-200 px-3 py-1.5 text-xs font-normal text-neutral-700 hover:bg-neutral-100 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 transition-colors"
@@ -428,6 +434,11 @@ export default function OAuthConsentPage() {
                                             type="hidden"
                                             name="action"
                                             value="approve"
+                                        />
+                                        <input
+                                            type="hidden"
+                                            name="csrf_token"
+                                            value={context.csrf_token}
                                         />
                                         <input
                                             type="hidden"

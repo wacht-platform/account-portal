@@ -31,7 +31,7 @@ function deriveFrontendApiBase(rawHost: string): string | null {
     if (!backendUrl) return null;
 
     if (backendUrl.includes("trywacht.xyz")) {
-        return `https://${slug}.feapis.xyz`;
+        return `https://${slug}.fapi.trywacht.xyz`;
     }
     return `https://frontend.${backendUrl}`;
 }
