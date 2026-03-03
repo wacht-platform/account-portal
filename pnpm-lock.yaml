@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@wacht/nextjs':
         specifier: 1.0.0-beta.0
-        version: 1.0.0-beta.0(@wacht/jsx@1.0.0-beta.1(@wacht/types@1.0.0-beta.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.0)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
+        version: 1.0.0-beta.0(@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
       axios:
         specifier: ^1.12.2
         version: 1.13.6
@@ -64,8 +64,8 @@ packages:
   '@emotion/unitless@0.10.0':
     resolution: {integrity: sha512-dFoMUuQA20zvtVTuxZww6OHoJYgrzfKM1t52mVySDJnMSEa08ruEvdYQbhvyu6soU+NeLVd3yKfTfT0NeV6qGg==}
 
-  '@img/colour@1.0.0':
-    resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
+  '@img/colour@1.1.0':
+    resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
     engines: {node: '>=18'}
 
   '@img/sharp-darwin-arm64@0.34.5':
@@ -505,8 +505,8 @@ packages:
     resolution: {integrity: sha512-eF+2Q8GvHcC3CdVtLPDqwxJaFW5kPWsYgJ5QQwcRAxgi670I1gF9Kh7Jo5taGLMDEMIwtabZlhbGmu6CfWuOYA==}
     engines: {node: '>=16.0.0'}
 
-  '@wacht/jsx@1.0.0-beta.1':
-    resolution: {integrity: sha512-HbVOKzW6zwmkFg7u0I1ttI+wkzP7+TBRDgirZ7EpKOsDVrG15vvdAZuH2P6XRcpDMhojPPoKRCevjPRYo0XK/A==}
+  '@wacht/jsx@1.0.0-beta.3':
+    resolution: {integrity: sha512-Ri7v38eBRT1UKJUkHDOwpHNPTX7xCInbaXWbwHbLZ2zwDbQJgKstI5i1GE65rrpNDEts1UvZ9y+WTvnaCTewMw==}
     peerDependencies:
       '@wacht/types': ^1.0.0-beta.0
       react: '>=19.0.0'
@@ -521,8 +521,8 @@ packages:
       react: '>=19.0.0'
       react-dom: '>=19.0.0'
 
-  '@wacht/types@1.0.0-beta.0':
-    resolution: {integrity: sha512-nOcjv/kP8LtGV2HMKw5iTJ7oieWB4xukfeR0cDfYczi20NsrvTTSXn3UFwT68iLMWzt1oUQVyx2yHTvZ+kOvOA==}
+  '@wacht/types@1.0.0-beta.3':
+    resolution: {integrity: sha512-2D3RLyhgKXbp5ABygJwmk4hcfgPIhguhL64MqFdyg5f1fXruIOFjSsRsQ0rM5QIslFuq778KbZL0sUAb+OfQyg==}
 
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -537,8 +537,8 @@ packages:
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
 
-  caniuse-lite@1.0.30001775:
-    resolution: {integrity: sha512-s3Qv7Lht9zbVKE9XoTyRG6wVDCKdtOFIjBGg3+Yhn6JaytuNKPIjBMTMIY1AnOH3seL5mvF+x33oGAyK3hVt3A==}
+  caniuse-lite@1.0.30001776:
+    resolution: {integrity: sha512-sg01JDPzZ9jGshqKSckOQthXnYwOEP50jeVFhaSFbZcOy05TiuuaffDOfcwtCisJ9kNQuLBFibYywv2Bgm9osw==}
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -784,8 +784,8 @@ packages:
     resolution: {integrity: sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.6:
-    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
+  postcss@8.5.8:
+    resolution: {integrity: sha512-OW/rX8O/jXnm82Ey1k44pObPtdblfiuWnrd8X7GJ7emImCOstunGbXUpp7HdBrFQX6rJzn3sPT397Wp5aCwCHg==}
     engines: {node: ^10 || ^12 || >=14}
 
   proxy-from-env@1.1.0:
@@ -908,7 +908,7 @@ snapshots:
 
   '@emotion/unitless@0.10.0': {}
 
-  '@img/colour@1.0.0':
+  '@img/colour@1.1.0':
     optional: true
 
   '@img/sharp-darwin-arm64@0.34.5':
@@ -1195,7 +1195,7 @@ snapshots:
       '@alloc/quick-lru': 5.2.0
       '@tailwindcss/node': 4.2.1
       '@tailwindcss/oxide': 4.2.1
-      postcss: 8.5.6
+      postcss: 8.5.8
       tailwindcss: 4.2.1
 
   '@types/estree@1.0.8': {}
@@ -1218,9 +1218,9 @@ snapshots:
     dependencies:
       jose: 4.15.9
 
-  '@wacht/jsx@1.0.0-beta.1(@wacht/types@1.0.0-beta.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
+  '@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
     dependencies:
-      '@wacht/types': 1.0.0-beta.0
+      '@wacht/types': 1.0.0-beta.3
       lucide-react: 0.474.0(react@19.2.4)
       qrcode.react: 4.2.0(react@19.2.4)
       react: 19.2.4
@@ -1232,11 +1232,11 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  '@wacht/nextjs@1.0.0-beta.0(@wacht/jsx@1.0.0-beta.1(@wacht/types@1.0.0-beta.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.0)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
+  '@wacht/nextjs@1.0.0-beta.0(@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
     dependencies:
       '@wacht/backend': 1.0.0-beta.0
-      '@wacht/jsx': 1.0.0-beta.1(@wacht/types@1.0.0-beta.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
-      '@wacht/types': 1.0.0-beta.0
+      '@wacht/jsx': 1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
+      '@wacht/types': 1.0.0-beta.3
       next: 15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -1244,7 +1244,7 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  '@wacht/types@1.0.0-beta.0': {}
+  '@wacht/types@1.0.0-beta.3': {}
 
   asynckit@0.4.0: {}
 
@@ -1263,7 +1263,7 @@ snapshots:
 
   camelize@1.0.1: {}
 
-  caniuse-lite@1.0.30001775: {}
+  caniuse-lite@1.0.30001776: {}
 
   client-only@0.0.1: {}
 
@@ -1440,7 +1440,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.9
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001775
+      caniuse-lite: 1.0.30001776
       postcss: 8.4.31
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
@@ -1475,7 +1475,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  postcss@8.5.6:
+  postcss@8.5.8:
     dependencies:
       nanoid: 3.3.11
       picocolors: 1.1.1
@@ -1538,7 +1538,7 @@ snapshots:
 
   sharp@0.34.5:
     dependencies:
-      '@img/colour': 1.0.0
+      '@img/colour': 1.1.0
       detect-libc: 2.1.2
       semver: 7.7.4
     optionalDependencies:
