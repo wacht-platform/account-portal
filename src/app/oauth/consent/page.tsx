@@ -228,8 +228,7 @@ export default function OAuthConsentPage() {
                 const payload = body?.data ? body.data : body;
                 setContext(payload as ConsentContext);
                 setSelectedResource(
-                    (payload?.resource as string | undefined) ||
-                        (payload?.resource_options?.[0]?.value as
+                    (payload?.resource_options?.[0]?.value as
                             | string
                             | undefined) ||
                         "",
@@ -358,7 +357,7 @@ export default function OAuthConsentPage() {
                                         <div className="relative">
                                             <select
                                                 className="w-full appearance-none rounded-lg border border-neutral-200 bg-neutral-50 px-3 py-2.5 pr-9 text-sm text-neutral-900 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
-                                                name="resource"
+                                                name="granted_resource"
                                                 value={selectedResource}
                                                 onChange={(e) =>
                                                     setSelectedResource(
@@ -442,7 +441,7 @@ export default function OAuthConsentPage() {
                                         />
                                         <input
                                             type="hidden"
-                                            name="resource"
+                                            name="granted_resource"
                                             value={selectedResource}
                                         />
                                         <button
