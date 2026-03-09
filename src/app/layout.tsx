@@ -22,9 +22,19 @@ type Meta = {
     favicon_image_url: string;
 };
 
+const LOCAL_FRONTEND_API_BASE = "http://localhost:3000";
+
 function deriveFrontendApiBase(rawHost: string): string | null {
     const host = rawHost.trim();
     if (!host) return null;
+
+    if (
+        host.includes("localhost") ||
+        host.startsWith("127.0.0.1") ||
+        host.startsWith("[::1]")
+    ) {
+        return LOCAL_FRONTEND_API_BASE;
+    }
 
     const slug = host.split(".")[0];
     const backendUrl = host.split(".").slice(1).join(".");

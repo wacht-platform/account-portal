@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@wacht/nextjs':
         specifier: 1.0.0-beta.0
-        version: 1.0.0-beta.0(@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
+        version: 1.0.0-beta.0(@wacht/jsx@1.0.0-beta.4(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
       axios:
         specifier: ^1.12.2
         version: 1.13.6
@@ -32,7 +32,7 @@ importers:
         version: 4.2.1
       '@types/node':
         specifier: ^20.19.17
-        version: 20.19.35
+        version: 20.19.37
       '@types/react':
         specifier: ^19.1.13
         version: 19.2.14
@@ -487,8 +487,8 @@ packages:
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
 
-  '@types/node@20.19.35':
-    resolution: {integrity: sha512-Uarfe6J91b9HAUXxjvSOdiO2UPOKLm07Q1oh0JHxoZ1y8HoqxDAu3gVrsrOHeiio0kSsoVBt4wFrKOm0dKxVPQ==}
+  '@types/node@20.19.37':
+    resolution: {integrity: sha512-8kzdPJ3FsNsVIurqBs7oodNnCEVbni9yUEkaHbgptDACOPW04jimGagZ51E6+lXUwJjgnBw+hyko/lkFWCldqw==}
 
   '@types/react-dom@19.2.3':
     resolution: {integrity: sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==}
@@ -505,8 +505,8 @@ packages:
     resolution: {integrity: sha512-eF+2Q8GvHcC3CdVtLPDqwxJaFW5kPWsYgJ5QQwcRAxgi670I1gF9Kh7Jo5taGLMDEMIwtabZlhbGmu6CfWuOYA==}
     engines: {node: '>=16.0.0'}
 
-  '@wacht/jsx@1.0.0-beta.3':
-    resolution: {integrity: sha512-Ri7v38eBRT1UKJUkHDOwpHNPTX7xCInbaXWbwHbLZ2zwDbQJgKstI5i1GE65rrpNDEts1UvZ9y+WTvnaCTewMw==}
+  '@wacht/jsx@1.0.0-beta.4':
+    resolution: {integrity: sha512-GFMtvqPfrVLmWJfcnOfgLkwnRhgC758Gkc5CXfdMPDgMgLBJIhcEwjhZPK3B0giJCPGU+QFowp2cIwTdao/5HA==}
     peerDependencies:
       '@wacht/types': ^1.0.0-beta.0
       react: '>=19.0.0'
@@ -537,8 +537,8 @@ packages:
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
 
-  caniuse-lite@1.0.30001776:
-    resolution: {integrity: sha512-sg01JDPzZ9jGshqKSckOQthXnYwOEP50jeVFhaSFbZcOy05TiuuaffDOfcwtCisJ9kNQuLBFibYywv2Bgm9osw==}
+  caniuse-lite@1.0.30001777:
+    resolution: {integrity: sha512-tmN+fJxroPndC74efCdp12j+0rk0RHwV5Jwa1zWaFVyw2ZxAuPeG8ZgWC3Wz7uSjT3qMRQ5XHZ4COgQmsCMJAQ==}
 
   client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
@@ -1200,7 +1200,7 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
-  '@types/node@20.19.35':
+  '@types/node@20.19.37':
     dependencies:
       undici-types: 6.21.0
 
@@ -1218,7 +1218,7 @@ snapshots:
     dependencies:
       jose: 4.15.9
 
-  '@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
+  '@wacht/jsx@1.0.0-beta.4(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
     dependencies:
       '@wacht/types': 1.0.0-beta.3
       lucide-react: 0.474.0(react@19.2.4)
@@ -1232,10 +1232,10 @@ snapshots:
     transitivePeerDependencies:
       - rollup
 
-  '@wacht/nextjs@1.0.0-beta.0(@wacht/jsx@1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
+  '@wacht/nextjs@1.0.0-beta.0(@wacht/jsx@1.0.0-beta.4(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0))(@wacht/types@1.0.0-beta.3)(next@15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)':
     dependencies:
       '@wacht/backend': 1.0.0-beta.0
-      '@wacht/jsx': 1.0.0-beta.3(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
+      '@wacht/jsx': 1.0.0-beta.4(@wacht/types@1.0.0-beta.3)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(rollup@4.59.0)
       '@wacht/types': 1.0.0-beta.3
       next: 15.5.9(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       react: 19.2.4
@@ -1263,7 +1263,7 @@ snapshots:
 
   camelize@1.0.1: {}
 
-  caniuse-lite@1.0.30001776: {}
+  caniuse-lite@1.0.30001777: {}
 
   client-only@0.0.1: {}
 
@@ -1440,7 +1440,7 @@ snapshots:
     dependencies:
       '@next/env': 15.5.9
       '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001776
+      caniuse-lite: 1.0.30001777
       postcss: 8.4.31
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)

@@ -1,6 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+import { AppState } from "@/components/app-state";
 
 export default function AuthError() {
   const searchParams = useSearchParams();
@@ -40,37 +41,15 @@ export default function AuthError() {
   const errorDetails = getErrorDetails();
 
   return (
-    <div className="flex w-full h-screen items-center justify-center bg-background">
-      <div className="max-w-[400px] w-full bg-surface dark:bg-zinc-900 rounded-lg shadow-lg p-8 text-center">
-        <div className="mb-6">
-          <h1 className="text-xl text-foreground mb-2">{errorDetails.title}</h1>
-          <p className="text-muted-foreground text-sm mb-6">{errorDetails.description}</p>
-        </div>
-
-        <div className="space-y-3">
-          <a
-            href="/sign-in"
-            className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-white bg-primary hover:bg-primary/90 rounded-md transition-colors"
-          >
-            Try Signing In Again
-          </a>
-
-          <a
-            href="/"
-            className="inline-flex items-center justify-center w-full px-4 py-2 text-sm text-foreground bg-background dark:bg-zinc-800 border border-border hover:bg-accent dark:hover:bg-zinc-700 rounded-md transition-colors"
-          >
-            Go Home
-          </a>
-        </div>
-
-        {error && (
-          <div className="mt-8 pt-6 border-t border-border">
-            <p className="text-xs text-muted-foreground">
-              Error code: {error}
-            </p>
-          </div>
-        )}
-      </div>
-    </div>
+    <AppState
+      eyebrow="Authentication"
+      title={errorDetails.title}
+      description={errorDetails.description}
+      actions={[
+        { href: "/sign-in", label: "Try signing in again" },
+        { href: "/", label: "Go home", variant: "secondary" },
+      ]}
+      meta={error ? <>Error code: {error}</> : undefined}
+    />
   );
 }

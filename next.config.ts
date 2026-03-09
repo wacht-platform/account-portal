@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "standalone",
-  transpilePackages: ["@snipextt/wacht", "@snipextt/wacht-nextjs"],
+    output: "standalone",
 };
 
 export default nextConfig;
