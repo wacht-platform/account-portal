@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import { Geist, Geist_Mono } from "next/font/google";
 import { DeploymentInitialized, DeploymentProvider } from "@wacht/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
+import { PortalShell } from "@/components/portal-shell";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -98,9 +99,11 @@ export default async function RootLayout({
                         disableTransitionOnChange
                     >
                         <DeploymentProvider publicKey={publicKey}>
-                            <DeploymentInitialized>
-                                {children}
-                            </DeploymentInitialized>
+                            <PortalShell>
+                                <DeploymentInitialized>
+                                    {children}
+                                </DeploymentInitialized>
+                            </PortalShell>
                         </DeploymentProvider>
                     </ThemeProvider>
                 </main>
