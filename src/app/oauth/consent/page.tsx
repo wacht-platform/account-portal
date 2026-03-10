@@ -397,7 +397,7 @@ export default function OAuthConsentPage() {
                                 </div>
                             </div>
 
-                            <div className="px-6 py-4 space-y-1.5">
+                            <div className="px-6 py-2 space-y-1.5">
                                 <p
                                     className="text-[14px] font-normal"
                                     style={{
