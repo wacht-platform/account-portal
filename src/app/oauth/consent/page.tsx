@@ -34,27 +34,6 @@ type ConsentContext = {
   csrf_token: string;
 };
 
-function AppAvatar({
-  name,
-}: {
-  name: string;
-}) {
-  const initial = (name ?? "A").slice(0, 1).toUpperCase();
-
-  return (
-    <div
-      className="flex h-10 w-10 items-center justify-center rounded-xl border text-sm font-normal"
-      style={{
-        borderColor: "var(--color-border, var(--border))",
-        background: "var(--color-secondary, var(--color-card, var(--surface)))",
-        color: "var(--color-secondary-text, var(--muted-foreground))",
-      }}
-    >
-      {initial}
-    </div>
-  );
-}
-
 function ScopeRow({
   scope,
   displayName,
@@ -74,7 +53,7 @@ function ScopeRow({
 
   return (
     <li
-      className="flex items-start gap-3 py-3"
+      className="flex items-start gap-3 py-2.5"
       style={{
         borderTopColor:
           "color-mix(in srgb, var(--color-border, var(--border)) 55%, transparent)",
@@ -105,13 +84,13 @@ function ScopeRow({
       </span>
       <div className="min-w-0">
         <p
-          className="text-sm font-normal leading-5"
+          className="text-[13px] font-normal leading-5"
           style={{ color: "var(--color-foreground, var(--foreground))" }}
         >
           {label || scope}
         </p>
         <p
-          className="text-xs leading-5"
+          className="text-[11px] leading-5"
           style={{
             color: "var(--color-secondary-text, var(--muted-foreground))",
           }}
@@ -255,6 +234,7 @@ function PrimaryActionButton({ children }: { children: React.ReactNode }) {
 export default function OAuthConsentPage() {
   const { client, loading: clientLoading } = useClient();
   const { deployment } = useDeployment();
+  const logoUrl = deployment?.ui_settings?.logo_image_url ?? null;
   const didLoadRef = useRef(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -357,14 +337,13 @@ export default function OAuthConsentPage() {
               }}
             >
               <div className="px-6 pt-6 pb-2 text-center">
-                <p
-                  className="text-[11px] uppercase tracking-[0.18em]"
-                  style={{
-                    color: "var(--color-secondary-text, var(--muted-foreground))",
-                  }}
-                >
-                  OAuth consent
-                </p>
+                {logoUrl ? (
+                  <img
+                    src={logoUrl}
+                    alt="Logo"
+                    className="mx-auto mb-3 h-6 w-auto max-w-[120px] object-contain"
+                  />
+                ) : null}
                 <h1
                   className="mt-2 text-xl font-normal"
                   style={{ color: "var(--color-foreground, var(--foreground))" }}
@@ -372,7 +351,7 @@ export default function OAuthConsentPage() {
                   Authorize access
                 </h1>
                 <p
-                  className="mt-2 text-sm"
+                  className="mt-1.5 text-sm"
                   style={{
                     color: "var(--color-secondary-text, var(--muted-foreground))",
                   }}
@@ -382,30 +361,27 @@ export default function OAuthConsentPage() {
               </div>
 
               <div className="px-6 py-4">
-                <div className="flex items-center gap-3">
-                  <AppAvatar name={displayName} />
-                  <div className="min-w-0 space-y-0.5">
-                    <h2
-                      className="truncate text-sm font-normal"
-                      style={{ color: "var(--color-foreground, var(--foreground))" }}
-                    >
-                      {displayName}
-                    </h2>
-                    <p
-                      className="text-xs"
-                      style={{
-                        color: "var(--color-secondary-text, var(--muted-foreground))",
-                      }}
-                    >
-                      is requesting permission to access your account.
-                    </p>
-                  </div>
+                <div className="min-w-0 space-y-0.5">
+                  <h2
+                    className="truncate text-sm font-normal"
+                    style={{ color: "var(--color-foreground, var(--foreground))" }}
+                  >
+                    {displayName}
+                  </h2>
+                  <p
+                    className="text-xs"
+                    style={{
+                      color: "var(--color-secondary-text, var(--muted-foreground))",
+                    }}
+                  >
+                    is requesting permission to access your account.
+                  </p>
                 </div>
               </div>
 
-              <div className="px-6 py-4 space-y-2">
+              <div className="px-6 py-4 space-y-1.5">
                 <p
-                  className="text-xs font-normal uppercase tracking-[0.18em]"
+                  className="text-[11px] font-normal uppercase tracking-[0.18em]"
                   style={{ color: "var(--color-secondary-text, var(--muted-foreground))" }}
                 >
                   Permissions requested
@@ -504,7 +480,7 @@ export default function OAuthConsentPage() {
                 >
                   {context.redirect_uri ? (
                     <>
-                      Approving will redirect you to{" "}
+                      Next destination{" "}
                       <span
                         style={{ color: "var(--color-foreground, var(--foreground))" }}
                       >
