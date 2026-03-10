@@ -36,38 +36,18 @@ type ConsentContext = {
 
 function AppAvatar({
   name,
-  logoUrl,
 }: {
   name: string;
-  logoUrl?: string | null;
 }) {
   const initial = (name ?? "A").slice(0, 1).toUpperCase();
 
-  if (logoUrl) {
-    return (
-      <div
-        className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border"
-        style={{
-          borderColor: "var(--color-border, var(--border))",
-          background: "var(--color-secondary, var(--color-card, var(--surface)))",
-        }}
-      >
-        <img
-          src={logoUrl}
-          alt={name}
-          className="h-full w-full object-contain p-1.5"
-        />
-      </div>
-    );
-  }
-
   return (
     <div
-      className="flex h-10 w-10 items-center justify-center rounded-2xl border text-base font-normal"
+      className="flex h-10 w-10 items-center justify-center rounded-xl border text-sm font-normal"
       style={{
         borderColor: "var(--color-border, var(--border))",
         background: "var(--color-secondary, var(--color-card, var(--surface)))",
-        color: "var(--color-foreground, var(--foreground))",
+        color: "var(--color-secondary-text, var(--muted-foreground))",
       }}
     >
       {initial}
@@ -154,7 +134,7 @@ function SkeletonLine({ w, h = "h-4" }: { w: string; h?: string }) {
   );
 }
 
-function LoadingSkeleton({ logoUrl }: { logoUrl?: string | null }) {
+function LoadingSkeleton() {
   return (
     <div
       className="min-h-screen flex items-center justify-center px-4 py-10"
@@ -164,32 +144,22 @@ function LoadingSkeleton({ logoUrl }: { logoUrl?: string | null }) {
       }}
     >
       <div
-        className="w-full max-w-[520px] space-y-5 overflow-hidden rounded-[28px] border px-5 py-5"
+        className="w-full max-w-[380px] space-y-6 overflow-hidden rounded-[var(--radius-lg)] border p-6"
         style={{
           borderColor: "var(--color-border, var(--border))",
           background: "var(--color-card, var(--surface))",
           boxShadow: "var(--shadow-md)",
         }}
       >
-        <div className="flex items-center gap-3">
-          {logoUrl ? (
-            <div
-              className="h-6 w-12 animate-pulse rounded"
-              style={{
-                background:
-                  "var(--color-background-hover, var(--color-accent, var(--accent)))",
-              }}
-            />
-          ) : null}
-          <SkeletonLine w="w-32" h="h-5" />
+        <div className="space-y-2 text-center">
+          <SkeletonLine w="mx-auto w-16" h="h-3" />
+          <SkeletonLine w="mx-auto w-32" h="h-5" />
+          <SkeletonLine w="mx-auto w-52" h="h-4" />
         </div>
 
-        <div
-          className="flex items-center gap-4 border-y py-5"
-          style={{ borderColor: "var(--color-border, var(--border))" }}
-        >
+        <div className="flex items-center gap-4">
           <div
-            className="h-14 w-14 shrink-0 animate-pulse rounded-2xl"
+            className="h-10 w-10 shrink-0 animate-pulse rounded-xl"
             style={{
               background:
                 "var(--color-background-hover, var(--color-accent, var(--accent)))",
@@ -219,16 +189,16 @@ function LoadingSkeleton({ logoUrl }: { logoUrl?: string | null }) {
           </div>
         </div>
 
-        <div className="flex gap-2 pt-2">
+        <div className="flex gap-3 pt-1">
           <div
-            className="h-10 flex-1 animate-pulse rounded-full"
+            className="h-9 flex-1 animate-pulse rounded-[var(--radius-lg)]"
             style={{
               background:
                 "var(--color-background-hover, var(--color-accent, var(--accent)))",
             }}
           />
           <div
-            className="h-10 flex-1 animate-pulse rounded-full"
+            className="h-9 flex-1 animate-pulse rounded-[var(--radius-lg)]"
             style={{
               background:
                 "var(--color-background-hover, var(--color-accent, var(--accent)))",
@@ -255,7 +225,7 @@ function SecondaryActionButton({ children }: { children: React.ReactNode }) {
   return (
     <button
       type="submit"
-      className="w-full rounded-full px-4 py-2 text-sm font-normal transition-opacity hover:opacity-90"
+      className="h-9 w-full rounded-[var(--radius-lg)] px-4 text-sm font-normal transition-opacity hover:opacity-90"
       style={{
         color: "var(--color-foreground, var(--foreground))",
         border: "var(--border-width-thin, 1px) solid var(--color-border, var(--border))",
@@ -271,7 +241,7 @@ function PrimaryActionButton({ children }: { children: React.ReactNode }) {
   return (
     <button
       type="submit"
-      className="w-full rounded-full px-4 py-2 text-sm font-normal transition-opacity hover:opacity-90"
+      className="h-9 w-full rounded-[var(--radius-lg)] px-4 text-sm font-normal transition-opacity hover:opacity-90"
       style={{
         background: "var(--color-primary, var(--primary))",
         color: "var(--color-primary-foreground, #ffffff)",
@@ -285,7 +255,6 @@ function PrimaryActionButton({ children }: { children: React.ReactNode }) {
 export default function OAuthConsentPage() {
   const { client, loading: clientLoading } = useClient();
   const { deployment } = useDeployment();
-  const logoUrl = deployment?.ui_settings?.logo_image_url ?? null;
   const didLoadRef = useRef(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -368,7 +337,7 @@ export default function OAuthConsentPage() {
       </SignedOut>
       <SignedIn>
         {loading ? (
-          <LoadingSkeleton logoUrl={logoUrl} />
+          <LoadingSkeleton />
         ) : error || !context ? (
           <ErrorState />
         ) : (
@@ -380,45 +349,41 @@ export default function OAuthConsentPage() {
             }}
           >
             <div
-              className="w-full max-w-[520px] overflow-hidden rounded-[28px] border"
+              className="w-full max-w-[380px] overflow-hidden rounded-[var(--radius-lg)] border"
               style={{
                 borderColor: "var(--color-border, var(--border))",
                 background: "var(--color-card, var(--surface))",
                 boxShadow: "var(--shadow-md)",
               }}
             >
-              <div className="px-5 pt-5 pb-4 flex items-center gap-3">
-                {logoUrl ? (
-                  <img
-                    src={logoUrl}
-                    alt="Logo"
-                    className="h-6 w-auto max-w-[120px] object-contain"
-                  />
-                ) : null}
-                <div className="space-y-1">
-                  <p
-                    className="text-[11px] uppercase tracking-[0.18em]"
-                    style={{
-                      color: "var(--color-secondary-text, var(--muted-foreground))",
-                    }}
-                  >
-                    OAuth consent
-                  </p>
-                  <h1
-                    className="text-lg font-normal"
-                    style={{ color: "var(--color-foreground, var(--foreground))" }}
-                  >
-                    Authorize access
-                  </h1>
-                </div>
+              <div className="px-6 pt-6 pb-2 text-center">
+                <p
+                  className="text-[11px] uppercase tracking-[0.18em]"
+                  style={{
+                    color: "var(--color-secondary-text, var(--muted-foreground))",
+                  }}
+                >
+                  OAuth consent
+                </p>
+                <h1
+                  className="mt-2 text-xl font-normal"
+                  style={{ color: "var(--color-foreground, var(--foreground))" }}
+                >
+                  Authorize access
+                </h1>
+                <p
+                  className="mt-2 text-sm"
+                  style={{
+                    color: "var(--color-secondary-text, var(--muted-foreground))",
+                  }}
+                >
+                  Review the permissions below before continuing.
+                </p>
               </div>
 
-              <div
-                className="border-y px-5 py-5"
-                style={{ borderColor: "var(--color-border, var(--border))" }}
-              >
+              <div className="px-6 py-4">
                 <div className="flex items-center gap-3">
-                  <AppAvatar name={displayName} logoUrl={logoUrl} />
+                  <AppAvatar name={displayName} />
                   <div className="min-w-0 space-y-0.5">
                     <h2
                       className="truncate text-sm font-normal"
@@ -438,7 +403,7 @@ export default function OAuthConsentPage() {
                 </div>
               </div>
 
-              <div className="px-5 py-5 space-y-2">
+              <div className="px-6 py-4 space-y-2">
                 <p
                   className="text-xs font-normal uppercase tracking-[0.18em]"
                   style={{ color: "var(--color-secondary-text, var(--muted-foreground))" }}
@@ -460,7 +425,7 @@ export default function OAuthConsentPage() {
               {(context.resource_options?.length ?? 0) > 0 ? (
                 <>
                   <hr style={{ borderColor: "var(--color-border, var(--border))" }} />
-                  <div className="px-5 py-5 space-y-2">
+                  <div className="px-6 py-4 space-y-2">
                     <p
                       className="text-xs font-normal uppercase tracking-[0.18em]"
                       style={{ color: "var(--color-secondary-text, var(--muted-foreground))" }}
@@ -469,7 +434,7 @@ export default function OAuthConsentPage() {
                     </p>
                     <div className="relative">
                       <select
-                        className="w-full appearance-none rounded-2xl border px-3 py-2.5 pr-9 text-sm outline-none transition"
+                        className="h-9 w-full appearance-none rounded-[var(--radius-lg)] border px-3 pr-9 text-sm outline-none transition"
                         name="granted_resource"
                         value={selectedResource}
                         onChange={(e) => setSelectedResource(e.target.value)}
@@ -514,8 +479,8 @@ export default function OAuthConsentPage() {
 
               <hr style={{ borderColor: "var(--color-border, var(--border))" }} />
 
-              <div className="px-5 py-5 space-y-3">
-                <div className="flex items-center gap-2">
+              <div className="px-6 py-4 space-y-3">
+                <div className="flex items-center gap-3">
                   <form method="POST" action={submitUrl} className="flex-1">
                     <input type="hidden" name="action" value="deny" />
                     <input type="hidden" name="csrf_token" value={context.csrf_token} />
