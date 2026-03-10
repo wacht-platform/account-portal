@@ -353,7 +353,7 @@ export default function OAuthConsentPage() {
                                     <img
                                         src={logoUrl}
                                         alt="Logo"
-                                        className="mx-auto mb-3 h-9 w-auto max-w-30 object-contain"
+                                        className="mx-auto mb-2 h-9 w-auto max-w-30 object-contain"
                                     />
                                 ) : null}
                                 <h1
