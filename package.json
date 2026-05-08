@@ -9,9 +9,9 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@wacht/jsx": "^1.0.0-beta.24",
-        "@wacht/nextjs": "^1.0.0-beta.24",
-        "@wacht/types": "^1.0.0-beta.24",
+        "@wacht/jsx": "^1.0.0-beta.44",
+        "@wacht/nextjs": "^1.0.0-beta.34",
+        "@wacht/types": "^1.0.0-beta.35",
         "axios": "^1.12.2",
         "next": "15.5.9",
         "next-themes": "^0.4.6",
