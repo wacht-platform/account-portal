@@ -21,6 +21,33 @@ function promptLoginEnforcedKey(): string | null {
     return id ? `wacht.oauth.prompt-login.${id}` : null;
 }
 
+/// Mirrors @wacht/jsx's `getStoredDevSession` scope→key derivation so we
+/// pick up the correct host-scoped dev_session that the SDK is rotating on
+/// every API response. Reading the bare `__dev_session__` key returns either
+/// nothing or a stale value because the SDK writes to a scoped variant.
+function readDevSession(scopeHost: string | null | undefined): string | null {
+    if (typeof window === "undefined") return null;
+    const value = (scopeHost ?? "").trim();
+    let normalized: string | null = null;
+    if (value) {
+        try {
+            const parsed = new URL(value.includes("://") ? value : `https://${value}`);
+            normalized = parsed.host.toLowerCase();
+        } catch {
+            normalized = value.toLowerCase().replace(/\/+$/, "");
+        }
+    }
+    const suffix = normalized
+        ? `_${normalized.replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 64)}`
+        : "";
+    const scopedKey = `__dev_session__${suffix}`;
+    return (
+        window.localStorage.getItem(scopedKey) ||
+        window.localStorage.getItem("__dev_session__") ||
+        null
+    );
+}
+
 type ConsentContext = {
     client_name?: string | null;
     client_id: string;
@@ -54,6 +81,21 @@ type ConsentContext = {
 
 function parsePromptValues(prompt: string | null | undefined): Set<string> {
     return new Set((prompt ?? "").split(/\s+/).filter(Boolean));
+}
+
+const OIDC_STANDARD_SCOPES = new Set([
+    "openid",
+    "profile",
+    "email",
+    "offline_access",
+]);
+
+/// True when every requested scope is purely OIDC identity (no Wacht
+/// tenant-data scopes). In that case there's nothing meaningful to pick a
+/// resource for — the user is the resource.
+function isIdentityOnlyRequest(scopes: string[] | undefined): boolean {
+    if (!scopes?.length) return false;
+    return scopes.every((s) => OIDC_STANDARD_SCOPES.has(s));
 }
 
 function ScopeRow({
@@ -288,10 +330,20 @@ export default function OAuthConsentPage() {
             if (res.ok) {
                 const payload = body?.data ? body.data : body;
                 setContext(payload as ConsentContext);
+                const options = payload?.resource_options ?? [];
+                // Identity-only OIDC requests always grant against the
+                // personal user resource — find it in the options rather
+                // than defaulting to options[0] which can be an org/workspace
+                // when the user has multiple memberships.
+                const userResource =
+                    options.find(
+                        (o: { type: string; value: string }) =>
+                            o.type === "user",
+                    )?.value ?? options[0]?.value ?? "";
                 setSelectedResource(
-                    (payload?.resource_options?.[0]?.value as
-                        | string
-                        | undefined) || "",
+                    isIdentityOnlyRequest(payload?.scopes)
+                        ? userResource
+                        : (options[0]?.value ?? ""),
                 );
                 setError(null);
                 setLoading(false);
@@ -348,7 +400,11 @@ export default function OAuthConsentPage() {
         });
     }, [context]);
 
-    const submitUrl = useMemo(() => {
+    // Not memoized: dev_session rotates on sign-in, so a value captured at
+    // mount time goes stale across the sign-in round trip. Reading the
+    // host-scoped storage key (same one the SDK writes to on every API
+    // response) picks up the latest rotated token.
+    const submitUrl = (() => {
         if (!deployment) return "";
         const rawHost = (deployment.backend_host || "").trim();
         if (!rawHost) return "";
@@ -358,15 +414,13 @@ export default function OAuthConsentPage() {
                 : `https://${rawHost}`;
         const url = new URL("/oauth/consent/submit", backendBase);
         if (deployment.mode === "staging") {
-            const devSession = (
-                localStorage.getItem("__dev_session__") || ""
-            ).trim();
+            const devSession = readDevSession(rawHost);
             if (devSession) {
                 url.searchParams.set("__dev_session__", devSession);
             }
         }
         return url.toString();
-    }, [deployment]);
+    })();
 
     // `prompt=login`: force a fresh sign-in even if a session exists. signOut
     // flips us into `<SignedOut>` which renders `<NavigateToSignIn />` —
@@ -530,7 +584,8 @@ export default function OAuthConsentPage() {
                                 </ul>
                             </div>
 
-                            {(context.resource_options?.length ?? 0) > 0 ? (
+                            {(context.resource_options?.length ?? 0) > 0 &&
+                            !isIdentityOnlyRequest(context.scopes) ? (
                                 <>
                                     <hr
                                         style={{
