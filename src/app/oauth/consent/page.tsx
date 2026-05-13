@@ -4,11 +4,22 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import {
     NavigateToSignIn,
     SignedIn,
+    SignedInAccounts,
     SignedOut,
     useClient,
     useDeployment,
+    useSession,
 } from "@wacht/nextjs";
 import { AppState } from "@/components/app-state";
+
+/// Keyed by handoff_id (URL query): set when we've already forced re-auth for
+/// this OAuth flow once. Prevents an infinite signOut→signIn→signOut loop
+/// when the RP keeps `prompt=login` on the request.
+function promptLoginEnforcedKey(): string | null {
+    if (typeof window === "undefined") return null;
+    const id = new URLSearchParams(window.location.search).get("handoff_id");
+    return id ? `wacht.oauth.prompt-login.${id}` : null;
+}
 
 type ConsentContext = {
     client_name?: string | null;
@@ -32,7 +43,18 @@ type ConsentContext = {
     state?: string | null;
     expires_at: number;
     csrf_token: string;
+    /** Space-separated OIDC `prompt` values from the RP. */
+    prompt?: string | null;
+    max_age?: number | null;
+    /** True when the user has already granted these scopes/resource. */
+    grant_already_covers?: boolean;
+    /** Canonical resource URN to auto-approve against. */
+    auto_approve_resource?: string | null;
 };
+
+function parsePromptValues(prompt: string | null | undefined): Set<string> {
+    return new Set((prompt ?? "").split(/\s+/).filter(Boolean));
+}
 
 function ScopeRow({
     scope,
@@ -240,12 +262,18 @@ function PrimaryActionButton({ children }: { children: React.ReactNode }) {
 export default function OAuthConsentPage() {
     const { client, loading: clientLoading } = useClient();
     const { deployment } = useDeployment();
+    const { signOut } = useSession();
     const logoUrl = deployment?.ui_settings?.logo_image_url ?? null;
     const didLoadRef = useRef(false);
+    const autoSubmittedRef = useRef(false);
+    const forcedReauthRef = useRef(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [context, setContext] = useState<ConsentContext | null>(null);
     const [selectedResource, setSelectedResource] = useState<string>("");
+    // OIDC `prompt=select_account`: render the account picker once, then
+    // continue to the consent UI for the chosen signin.
+    const [accountPicked, setAccountPicked] = useState(false);
 
     useEffect(() => {
         const load = async () => {
@@ -276,6 +304,26 @@ export default function OAuthConsentPage() {
 
         void load();
     }, [client, clientLoading]);
+
+    const prompts = useMemo(
+        () => parsePromptValues(context?.prompt),
+        [context],
+    );
+    const wantsSelectAccount = prompts.has("select_account") && !accountPicked;
+    // Auto-submit fires when the RP requested no UI (`prompt=none`) OR when
+    // the user already consented to these scopes/resource before — except
+    // `prompt=consent` forces the UI regardless of prior coverage.
+    const wantsAutoSubmit =
+        prompts.has("none") ||
+        (Boolean(context?.grant_already_covers) && !prompts.has("consent"));
+    // `prompt=login` is satisfied as soon as we've forced one re-auth for
+    // this handoff (sessionStorage marker survives the sign-in round trip).
+    const needsForceLogin = useMemo(() => {
+        if (!prompts.has("login")) return false;
+        const key = promptLoginEnforcedKey();
+        if (!key || typeof window === "undefined") return true;
+        return !window.sessionStorage.getItem(key);
+    }, [prompts]);
 
     const displayName = useMemo(() => {
         const name = context?.client_name?.trim();
@@ -320,16 +368,80 @@ export default function OAuthConsentPage() {
         return url.toString();
     }, [deployment]);
 
+    // `prompt=login`: force a fresh sign-in even if a session exists. signOut
+    // flips us into `<SignedOut>` which renders `<NavigateToSignIn />` —
+    // that preserves the current URL, so re-auth lands the user back here
+    // with the sessionStorage marker set, satisfying the prompt.
+    useEffect(() => {
+        if (loading || !context || !needsForceLogin) return;
+        if (forcedReauthRef.current) return;
+        forcedReauthRef.current = true;
+        const flagKey = promptLoginEnforcedKey();
+        if (flagKey) window.sessionStorage.setItem(flagKey, "1");
+        void signOut();
+    }, [loading, context, needsForceLogin, signOut]);
+
+    // Auto-submit cases:
+    //   1. `prompt=none` — RP asked for no UI. If platform-api can't issue
+    //      a code, it redirects with the spec error; nothing we do here
+    //      changes that outcome.
+    //   2. `grant_already_covers` — the user previously consented and the
+    //      RP didn't override with `prompt=consent`. Frontend-api already
+    //      picked the right canonical resource (`auto_approve_resource`).
+    useEffect(() => {
+        if (!wantsAutoSubmit || !context || !submitUrl) return;
+        if (wantsSelectAccount) return;
+        if (autoSubmittedRef.current) return;
+        // Pick the resource: auto-approve helper wins, then the selector
+        // value, finally bail when there are options but nothing is chosen.
+        const grantedResource = context.auto_approve_resource || selectedResource;
+        if (!grantedResource && (context.resource_options?.length ?? 0) > 0) {
+            return;
+        }
+        autoSubmittedRef.current = true;
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = submitUrl;
+        const fields: Array<[string, string]> = [
+            ["action", "approve"],
+            ["csrf_token", context.csrf_token],
+            ["granted_resource", grantedResource],
+        ];
+        for (const [name, value] of fields) {
+            const input = document.createElement("input");
+            input.type = "hidden";
+            input.name = name;
+            input.value = value;
+            form.appendChild(input);
+        }
+        document.body.appendChild(form);
+        form.submit();
+    }, [
+        wantsAutoSubmit,
+        wantsSelectAccount,
+        context,
+        submitUrl,
+        selectedResource,
+    ]);
+
     return (
         <>
             <SignedOut>
                 <NavigateToSignIn />
             </SignedOut>
             <SignedIn>
-                {loading ? (
+                {loading || needsForceLogin ? (
                     <LoadingSkeleton />
                 ) : error || !context ? (
                     <ErrorState />
+                ) : wantsSelectAccount ? (
+                    <div className="min-h-screen flex items-center justify-center px-4 py-10">
+                        <SignedInAccounts
+                            onAccountSelect={() => setAccountPicked(true)}
+                        />
+                    </div>
+                ) : wantsAutoSubmit ? (
+                    <LoadingSkeleton />
                 ) : (
                     <div
                         className="min-h-screen flex items-center justify-center px-4 py-10"
