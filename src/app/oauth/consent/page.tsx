@@ -514,21 +514,24 @@ export default function OAuthConsentPage() {
                                 boxShadow: "var(--shadow-md)",
                             }}
                         >
-                            <div className="px-6 pt-6 pb-2 text-center">
+                            <div className="px-6 pt-6 pb-4 text-center">
                                 {logoUrl ? (
                                     <img
                                         src={logoUrl}
-                                        alt="Logo"
+                                        alt=""
                                         className="mx-auto mb-2 h-9 w-auto max-w-30 object-contain"
+                                        onError={(e) => {
+                                            e.currentTarget.style.display = "none";
+                                        }}
                                     />
                                 ) : null}
                                 <h1
-                                    className="mt-2 text-lg font-normal"
+                                    className="mt-2 truncate text-lg font-normal"
                                     style={{
                                         color: "var(--color-foreground, var(--foreground))",
                                     }}
                                 >
-                                    Authorize access
+                                    {displayName}
                                 </h1>
                                 <p
                                     className="mt-1.5 text-sm"
@@ -536,31 +539,8 @@ export default function OAuthConsentPage() {
                                         color: "var(--color-secondary-text, var(--muted-foreground))",
                                     }}
                                 >
-                                    Review the permissions below before
-                                    continuing.
+                                    is requesting access to
                                 </p>
-                            </div>
-
-                            <div className="px-6 py-3">
-                                <div className="min-w-0 space-y-0.5">
-                                    <h2
-                                        className="truncate text-sm font-normal"
-                                        style={{
-                                            color: "var(--color-foreground, var(--foreground))",
-                                        }}
-                                    >
-                                        {displayName}
-                                    </h2>
-                                    <p
-                                        className="text-xs"
-                                        style={{
-                                            color: "var(--color-secondary-text, var(--muted-foreground))",
-                                        }}
-                                    >
-                                        is requesting permission to access your
-                                        account.
-                                    </p>
-                                </div>
                             </div>
 
                             <div className="px-6 py-2 space-y-1.5">
