@@ -6,24 +6,29 @@
         "dev": "next dev --port 5174",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+        "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+        "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
     },
     "dependencies": {
-        "@wacht/jsx": "^1.0.0-beta.44",
-        "@wacht/nextjs": "^1.0.0-beta.34",
-        "@wacht/types": "^1.0.0-beta.35",
-        "axios": "^1.12.2",
-        "next": "15.5.9",
+        "@opennextjs/cloudflare": "^1.19.11",
+        "@wacht/jsx": "1.0.0-beta.49",
+        "@wacht/nextjs": "1.0.0-beta.35",
+        "@wacht/types": "1.0.0-beta.36",
+        "axios": "^1.16.1",
+        "next": "16.2.6",
         "next-themes": "^0.4.6",
-        "react": "^19.1.1",
-        "react-dom": "^19.1.1"
+        "react": "^19.2.6",
+        "react-dom": "^19.2.6"
     },
     "devDependencies": {
-        "@tailwindcss/postcss": "^4.1.13",
-        "@types/node": "^20.19.17",
-        "@types/react": "^19.1.13",
-        "@types/react-dom": "^19.1.9",
-        "tailwindcss": "^4.1.13",
-        "typescript": "^5.9.2"
+        "@tailwindcss/postcss": "^4.3.0",
+        "@types/node": "^25.9.1",
+        "@types/react": "^19.2.15",
+        "@types/react-dom": "^19.2.3",
+        "tailwindcss": "^4.3.0",
+        "typescript": "^6.0.3",
+        "wrangler": "^4.95.0"
     }
 }
