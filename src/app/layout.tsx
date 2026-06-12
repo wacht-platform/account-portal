@@ -64,7 +64,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
         return {
             title: `Accounts Portal | ${meta.data.app_name}`,
-            icons: [{ url: meta.data.favicon_image_url }],
+            ...(meta.data.favicon_image_url
+                ? { icons: [{ url: meta.data.favicon_image_url }] }
+                : {}),
         };
     } catch (error) {
         return {
@@ -98,7 +100,14 @@ export default async function RootLayout({
                         enableSystem
                         disableTransitionOnChange
                     >
-                        <DeploymentProvider publicKey={publicKey}>
+                        <DeploymentProvider
+                            publicKey={publicKey}
+                            uiOverrides={{
+                                sign_in_page_url: "/sign-in",
+                                sign_up_page_url: "/sign-up",
+                                waitlist_page_url: "/waitlist",
+                            }}
+                        >
                             <PortalShell>
                                 <DeploymentInitialized>
                                     {children}

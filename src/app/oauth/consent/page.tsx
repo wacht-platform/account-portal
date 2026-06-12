@@ -116,18 +116,12 @@ function ScopeRow({
             .join(" ");
 
     return (
-        <li
-            className="flex items-start gap-3 py-2"
-            style={{
-                borderTopColor:
-                    "color-mix(in srgb, var(--color-border, var(--border)) 55%, transparent)",
-            }}
-        >
+        <li className="flex items-start gap-3 py-2">
             <span
                 className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
                 style={{
-                    background: "var(--color-primary-background)",
-                    color: "var(--color-primary, var(--primary))",
+                    background: "var(--wa-primary-soft)",
+                    color: "var(--wa-primary)",
                 }}
             >
                 <svg
@@ -149,17 +143,13 @@ function ScopeRow({
             <div className="min-w-0">
                 <p
                     className="text-[13px] font-normal leading-5"
-                    style={{
-                        color: "var(--color-foreground, var(--foreground))",
-                    }}
+                    style={{ color: "var(--wa-text)" }}
                 >
                     {label || scope}
                 </p>
                 <p
                     className="text-[11px] leading-5"
-                    style={{
-                        color: "var(--color-secondary-text, var(--muted-foreground))",
-                    }}
+                    style={{ color: "var(--wa-text-muted)" }}
                 >
                     {description?.trim() || scope}
                 </p>
@@ -168,91 +158,49 @@ function ScopeRow({
     );
 }
 
-function SkeletonLine({ w, h = "h-4" }: { w: string; h?: string }) {
-    return (
-        <div
-            className={`${h} ${w} animate-pulse rounded-full`}
-            style={{
-                background:
-                    "var(--color-background-hover, var(--color-accent, var(--accent)))",
-            }}
-        />
-    );
-}
-
 function LoadingSkeleton() {
     return (
         <div
             className="min-h-screen flex items-center justify-center px-4 py-10"
-            style={{
-                background: "var(--color-background, var(--background))",
-                color: "var(--color-foreground, var(--foreground))",
-            }}
+            style={{ background: "var(--wa-background)", color: "var(--wa-text)" }}
         >
-            <div
-                className="w-full max-w-[380px] space-y-6 overflow-hidden rounded-[var(--radius-lg)] border p-6"
-                style={{
-                    borderColor: "var(--color-border, var(--border))",
-                    background: "var(--color-card, var(--surface))",
-                    boxShadow: "var(--shadow-md)",
-                }}
-            >
-                <div className="space-y-2 text-center">
-                    <SkeletonLine w="mx-auto w-16" h="h-3" />
-                    <SkeletonLine w="mx-auto w-32" h="h-5" />
-                    <SkeletonLine w="mx-auto w-52" h="h-4" />
-                </div>
-
-                <div className="flex items-center gap-4">
-                    <div
-                        className="h-10 w-10 shrink-0 animate-pulse rounded-xl"
-                        style={{
-                            background:
-                                "var(--color-background-hover, var(--color-accent, var(--accent)))",
-                        }}
-                    />
-                    <div className="space-y-2">
-                        <SkeletonLine w="w-52" h="h-5" />
-                        <SkeletonLine w="w-64" h="h-4" />
-                    </div>
-                </div>
-
-                <div className="space-y-2">
-                    <SkeletonLine w="w-36" h="h-4" />
-                    <div className="space-y-2 pt-1">
-                        {[1, 2, 3, 4].map((i) => (
-                            <div key={i} className="flex items-start gap-3">
-                                <div
-                                    className="h-5 w-5 shrink-0 rounded-full animate-pulse"
-                                    style={{
-                                        background:
-                                            "var(--color-primary-background)",
-                                    }}
-                                />
-                                <div className="space-y-1.5">
-                                    <SkeletonLine w="w-40" />
-                                    <SkeletonLine w="w-52" h="h-3" />
+            <div className="w-card w-auth-card">
+                <div className="w-create-body">
+                    <div className="w-auth-skel" aria-hidden="true">
+                        <div className="w-auth-skel-head">
+                            <span className="w-skel w-skel-avatar" />
+                            <span className="w-skel w-skel-title" />
+                            <span className="w-skel w-skel-sub" />
+                        </div>
+                        <div className="w-auth-skel-fields">
+                            {[1, 2, 3, 4].map((i) => (
+                                <div key={i} className="flex items-start gap-3">
+                                    <span
+                                        className="w-skel shrink-0"
+                                        style={{
+                                            width: 20,
+                                            height: 20,
+                                            borderRadius: "50%",
+                                        }}
+                                    />
+                                    <div className="flex-1 flex flex-col gap-1.5">
+                                        <span
+                                            className="w-skel"
+                                            style={{ height: 11, width: "58%" }}
+                                        />
+                                        <span
+                                            className="w-skel"
+                                            style={{ height: 9, width: "78%" }}
+                                        />
+                                    </div>
                                 </div>
+                            ))}
+                            <div className="flex gap-3 pt-1">
+                                <span className="w-skel w-skel-btn flex-1" />
+                                <span className="w-skel w-skel-btn flex-1" />
                             </div>
-                        ))}
+                        </div>
                     </div>
-                </div>
-
-                <div className="flex gap-3 pt-1">
-                    <div
-                        className="h-9 flex-1 animate-pulse rounded-[var(--radius-lg)]"
-                        style={{
-                            background:
-                                "var(--color-background-hover, var(--color-accent, var(--accent)))",
-                        }}
-                    />
-                    <div
-                        className="h-9 flex-1 animate-pulse rounded-[var(--radius-lg)]"
-                        style={{
-                            background:
-                                "var(--color-background-hover, var(--color-accent, var(--accent)))",
-                        }}
-                    />
                 </div>
             </div>
         </div>
@@ -272,15 +220,7 @@ function ErrorState() {
 
 function SecondaryActionButton({ children }: { children: React.ReactNode }) {
     return (
-        <button
-            type="submit"
-            className="h-9 w-full rounded-[var(--radius-lg)] px-4 text-sm font-normal transition-opacity hover:opacity-90"
-            style={{
-                color: "var(--color-foreground, var(--foreground))",
-                border: "var(--border-width-thin, 1px) solid var(--color-border, var(--border))",
-                background: "transparent",
-            }}
-        >
+        <button type="submit" className="w-btn w-btn--secondary w-btn--block">
             {children}
         </button>
     );
@@ -288,14 +228,7 @@ function SecondaryActionButton({ children }: { children: React.ReactNode }) {
 
 function PrimaryActionButton({ children }: { children: React.ReactNode }) {
     return (
-        <button
-            type="submit"
-            className="h-9 w-full rounded-[var(--radius-lg)] px-4 text-sm font-normal transition-opacity hover:opacity-90"
-            style={{
-                background: "var(--color-primary, var(--primary))",
-                color: "var(--color-primary-foreground, #ffffff)",
-            }}
-        >
+        <button type="submit" className="w-btn w-btn--primary w-btn--block">
             {children}
         </button>
     );
@@ -500,55 +433,37 @@ export default function OAuthConsentPage() {
                     <div
                         className="min-h-screen flex items-center justify-center px-4 py-10"
                         style={{
-                            background:
-                                "var(--color-background, var(--background))",
-                            color: "var(--color-foreground, var(--foreground))",
+                            background: "var(--wa-background)",
+                            color: "var(--wa-text)",
                         }}
                     >
-                        <div
-                            className="w-full max-w-95 overflow-hidden rounded-lg border"
-                            style={{
-                                borderColor:
-                                    "var(--color-border, var(--border))",
-                                background: "var(--color-card, var(--surface))",
-                                boxShadow: "var(--shadow-md)",
-                            }}
-                        >
-                            <div className="px-6 pt-6 pb-4 text-center">
+                        <div className="w-card w-auth-card">
+                            <div className="px-6 pt-7 pb-4 text-center">
                                 {logoUrl ? (
                                     <img
                                         src={logoUrl}
                                         alt=""
-                                        className="mx-auto mb-2 h-9 w-auto max-w-30 object-contain"
+                                        className="mx-auto mb-3 h-9 w-auto max-w-30 object-contain"
                                         onError={(e) => {
                                             e.currentTarget.style.display = "none";
                                         }}
                                     />
                                 ) : null}
                                 <h1
-                                    className="mt-2 truncate text-lg font-normal"
-                                    style={{
-                                        color: "var(--color-foreground, var(--foreground))",
-                                    }}
+                                    className="truncate w-auth-title"
+                                    style={{ fontSize: 18 }}
                                 >
                                     {displayName}
                                 </h1>
-                                <p
-                                    className="mt-1.5 text-sm"
-                                    style={{
-                                        color: "var(--color-secondary-text, var(--muted-foreground))",
-                                    }}
-                                >
+                                <p className="mt-1.5 w-auth-sub">
                                     is requesting access to
                                 </p>
                             </div>
 
                             <div className="px-6 py-2 space-y-1.5">
                                 <p
-                                    className="text-[14px] font-normal"
-                                    style={{
-                                        color: "var(--color-secondary-text, var(--muted-foreground))",
-                                    }}
+                                    className="text-[12px] font-normal uppercase tracking-wide"
+                                    style={{ color: "var(--wa-text-muted)" }}
                                 >
                                     Permissions requested
                                 </p>
@@ -567,24 +482,17 @@ export default function OAuthConsentPage() {
                             {(context.resource_options?.length ?? 0) > 0 &&
                             !isIdentityOnlyRequest(context.scopes) ? (
                                 <>
-                                    <hr
-                                        style={{
-                                            borderColor:
-                                                "var(--color-border, var(--border))",
-                                        }}
-                                    />
+                                    <hr className="w-hr" />
                                     <div className="px-6 py-4 space-y-2">
                                         <p
-                                            className="text-xs font-normal"
-                                            style={{
-                                                color: "var(--color-secondary-text, var(--muted-foreground))",
-                                            }}
+                                            className="text-[12px] font-normal uppercase tracking-wide"
+                                            style={{ color: "var(--wa-text-muted)" }}
                                         >
                                             Grant access to
                                         </p>
                                         <div className="relative">
                                             <select
-                                                className="h-9 w-full appearance-none rounded-lg border px-3 pr-9 text-sm outline-none transition"
+                                                className="w-input appearance-none pr-9"
                                                 name="granted_resource"
                                                 value={selectedResource}
                                                 onChange={(e) =>
@@ -592,13 +500,6 @@ export default function OAuthConsentPage() {
                                                         e.target.value,
                                                     )
                                                 }
-                                                style={{
-                                                    borderColor:
-                                                        "var(--color-input-border, var(--color-border, var(--border)))",
-                                                    background:
-                                                        "var(--color-input-background, var(--color-card, var(--surface)))",
-                                                    color: "var(--color-foreground, var(--foreground))",
-                                                }}
                                             >
                                                 {context.resource_options?.map(
                                                     (option) => (
@@ -614,7 +515,7 @@ export default function OAuthConsentPage() {
                                             <span
                                                 className="pointer-events-none absolute inset-y-0 right-3 flex items-center"
                                                 style={{
-                                                    color: "var(--color-secondary-text, var(--muted-foreground))",
+                                                    color: "var(--wa-text-muted)",
                                                 }}
                                             >
                                                 <svg
@@ -638,12 +539,7 @@ export default function OAuthConsentPage() {
                                 </>
                             ) : null}
 
-                            <hr
-                                style={{
-                                    borderColor:
-                                        "var(--color-border, var(--border))",
-                                }}
-                            />
+                            <hr className="w-hr" />
 
                             <div className="px-6 py-4 space-y-3">
                                 <div className="flex items-center gap-3">
@@ -693,19 +589,13 @@ export default function OAuthConsentPage() {
                                 </div>
 
                                 <p
-                                    className="text-center text-[11px]"
-                                    style={{
-                                        color: "var(--color-secondary-text, var(--muted-foreground))",
-                                    }}
+                                    className="text-center text-[11px] leading-5"
+                                    style={{ color: "var(--wa-text-muted)" }}
                                 >
                                     {context.redirect_uri ? (
                                         <>
                                             Next destination{" "}
-                                            <span
-                                                style={{
-                                                    color: "var(--color-foreground, var(--foreground))",
-                                                }}
-                                            >
+                                            <span style={{ color: "var(--wa-text)" }}>
                                                 {context.redirect_uri}
                                             </span>
                                             .

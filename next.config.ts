@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
-const nextConfig: NextConfig = {
-    transpilePackages: ["@wacht/jsx", "@wacht/nextjs", "@wacht/types"],
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;
 

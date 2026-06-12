@@ -9,8 +9,8 @@ export function PortalShell({ children }: { children: ReactNode }) {
       <div
         className="min-h-screen"
         style={{
-          background: "var(--color-background, var(--background))",
-          color: "var(--color-foreground, var(--foreground))",
+          background: "var(--wa-background)",
+          color: "var(--wa-text)",
         }}
       >
         {children}
