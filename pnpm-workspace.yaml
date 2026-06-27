@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: false
+  sharp: false
+  workerd: false
+minimumReleaseAgeExclude:
+  - '@wacht/jsx@1.0.0-beta.57'
+  - '@wacht/nextjs@1.0.0-beta.37'
+  - '@wacht/types@1.0.0-beta.41'
+onlyBuiltDependencies: '[]'
