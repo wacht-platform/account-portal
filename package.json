@@ -13,7 +13,7 @@
     },
     "dependencies": {
         "@opennextjs/cloudflare": "^1.19.11",
-        "@wacht/jsx": "1.0.0-beta.59",
+        "@wacht/jsx": "1.0.0-beta.60",
         "@wacht/nextjs": "1.0.0-beta.37",
         "@wacht/types": "1.0.0-beta.41",
         "axios": "^1.16.1",
