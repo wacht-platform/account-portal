@@ -12,11 +12,11 @@ importers:
         specifier: ^1.19.11
         version: 1.19.11(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(wrangler@4.95.0)
       '@wacht/jsx':
-        specifier: 1.0.0-beta.57
-        version: 1.0.0-beta.57(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
+        specifier: 1.0.0-beta.59
+        version: 1.0.0-beta.59(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
       '@wacht/nextjs':
         specifier: 1.0.0-beta.37
-        version: 1.0.0-beta.37(@wacht/jsx@1.0.0-beta.57(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1))(@wacht/types@1.0.0-beta.41)(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
+        version: 1.0.0-beta.37(@wacht/jsx@1.0.0-beta.59(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1))(@wacht/types@1.0.0-beta.41)(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
       '@wacht/types':
         specifier: 1.0.0-beta.41
         version: 1.0.0-beta.41
@@ -1401,8 +1401,8 @@ packages:
     resolution: {integrity: sha512-emCKheJ94CssagOsuRTnZNsakXHmBXiNBTHlrgQRhmdaCqsLbHWJceWVf+UnZ3OVqfA3S4Xam482HPhrK8YKBQ==}
     engines: {node: '>=20'}
 
-  '@wacht/jsx@1.0.0-beta.57':
-    resolution: {integrity: sha512-7ISOJ9YM4KyrBKH3GvoDaem3B3+t9Fin3jTlCVTqODjio/dlQlOkv0qqkSr6QQ7892jKERkDFarMHHf5q23pUw==}
+  '@wacht/jsx@1.0.0-beta.59':
+    resolution: {integrity: sha512-M11rFEgcJiPYlE0T/dp2EVtBW7Mpk2x96nK5f+0D21q5KEVBOwDoUXBjObLR+RUIRuSrQQ40X//c4jMgwUTFEA==}
     peerDependencies:
       '@wacht/types': ^1.0.0-beta.35
       react: '>=19.0.0'
@@ -3917,7 +3917,7 @@ snapshots:
       '@noble/curves': 2.2.0
       jose: 4.15.9
 
-  '@wacht/jsx@1.0.0-beta.57(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)':
+  '@wacht/jsx@1.0.0-beta.59(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)':
     dependencies:
       '@phosphor-icons/react': 2.1.10(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       '@wacht/types': 1.0.0-beta.41
@@ -3933,10 +3933,10 @@ snapshots:
       - react-native
       - rollup
 
-  '@wacht/nextjs@1.0.0-beta.37(@wacht/jsx@1.0.0-beta.57(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1))(@wacht/types@1.0.0-beta.41)(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)':
+  '@wacht/nextjs@1.0.0-beta.37(@wacht/jsx@1.0.0-beta.59(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1))(@wacht/types@1.0.0-beta.41)(next@16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6))(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)':
     dependencies:
       '@wacht/backend': 1.0.0-beta.20
-      '@wacht/jsx': 1.0.0-beta.57(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
+      '@wacht/jsx': 1.0.0-beta.59(@wacht/types@1.0.0-beta.41)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(rollup@4.61.1)
       '@wacht/types': 1.0.0-beta.41
       next: 16.2.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
       react: 19.2.6
